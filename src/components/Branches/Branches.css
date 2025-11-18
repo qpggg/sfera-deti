@@ -205,6 +205,60 @@
   margin-bottom: var(--spacing-xl);
 }
 
+/* Стили для select выбора филиалов */
+.branches__select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.branches__select {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3.5rem;
+  background: var(--color-white);
+  border: 2px solid rgba(0, 151, 184, 0.2);
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: var(--font-heading);
+  color: var(--color-graphite);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230097B8' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+  box-shadow: 0 4px 20px rgba(0, 151, 184, 0.08);
+}
+
+.branches__select:hover {
+  border-color: rgba(0, 151, 184, 0.4);
+  box-shadow: 0 8px 30px rgba(0, 151, 184, 0.15);
+}
+
+.branches__select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 4px rgba(0, 151, 184, 0.1), 0 8px 30px rgba(0, 151, 184, 0.2);
+}
+
+.branches__select option {
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-graphite);
+}
+
+.branches__select-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-accent);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .branches__list {
   display: flex;
   flex-direction: column;
@@ -717,6 +771,26 @@
 @media (max-width: 768px) {
   .branches {
     padding: var(--spacing-lg) 0;
+  }
+  
+  .branches__wrapper {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .branches__select {
+    padding: 0.875rem 0.875rem 0.875rem 3rem;
+    font-size: 0.9375rem;
+    border-radius: 14px;
+  }
+  
+  .branches__select-icon {
+    left: 0.875rem;
+  }
+  
+  .branches__select-icon svg {
+    width: 18px;
+    height: 18px;
   }
   
   .branches__directions-grid {

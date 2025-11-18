@@ -577,9 +577,38 @@
 }
 
 @media (max-width: 768px) {
+  /* 2 ряда по 2 карточки на мобильных */
   .approach-methodology__features {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+  
+  /* Уменьшить размер карточек на мобильных */
+  .approach-methodology__feature {
+    padding: var(--spacing-sm);
+    border-radius: 16px;
+  }
+  
+  .approach-methodology__feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .approach-methodology__feature-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .approach-methodology__feature-title {
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .approach-methodology__feature-description {
+    font-size: 0.75rem;
+    line-height: 1.4;
   }
   
   .approach-methodology {
@@ -619,6 +648,12 @@
 
   .approach-methodology__approach-divider {
     display: none;
+  }
+  
+  /* Уменьшить бокс "психологический контроль" на мобильных */
+  .approach-methodology__approach-item {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
   }
 
   .approach-methodology__directions-list {

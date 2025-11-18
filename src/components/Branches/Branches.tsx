@@ -117,28 +117,22 @@ function Branches() {
           </div>
 
           <div className="branches__wrapper">
-            <div className="branches__list">
-              {branches.map((branch, index) => (
-                <button
-                  key={branch.id}
-                  className={`branches__branch-item ${selectedBranch === branch.id ? 'branches__branch-item--active' : ''}`}
-                  onClick={() => setSelectedBranch(branch.id)}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="branches__branch-icon-wrapper">
-                    <MapPin size={22} />
-                  </div>
-                  <div className="branches__branch-info">
-                    <span className="branches__branch-name">{branch.name}</span>
-                    <span className="branches__branch-address">{branch.address}</span>
-                  </div>
-                  {selectedBranch === branch.id && (
-                    <div className="branches__branch-check">
-                      <Check size={18} />
-                    </div>
-                  )}
-                </button>
-              ))}
+            <div className="branches__select-wrapper">
+              <select
+                className="branches__select"
+                value={selectedBranch || ''}
+                onChange={(e) => setSelectedBranch(e.target.value || null)}
+              >
+                <option value="">Выберите филиал</option>
+                {branches.map((branch) => (
+                  <option key={branch.id} value={branch.id}>
+                    {branch.name} - {branch.address}
+                  </option>
+                ))}
+              </select>
+              <div className="branches__select-icon">
+                <MapPin size={20} />
+              </div>
             </div>
 
             <div className="branches__directions">

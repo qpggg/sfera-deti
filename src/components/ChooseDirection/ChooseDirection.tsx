@@ -14,7 +14,19 @@ interface Direction {
 function ChooseDirection() {
   const [isVisible, setIsVisible] = useState(false)
   const [selectedDirection, setSelectedDirection] = useState<string | null>(null)
+  const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set())
+  const [isMobile, setIsMobile] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -184,7 +196,9 @@ function ChooseDirection() {
                   </div>
                 </div>
 
-                <div className="choose-direction__card-content">
+                <div 
+                  className={`choose-direction__card-content ${expandedCards.has(direction.id) ? 'choose-direction__card-content--expanded' : ''}`}
+                >
                   <div className="choose-direction__card-section">
                     <h4 className="choose-direction__card-section-title">Какие задачи решаем:</h4>
                     <ul className="choose-direction__card-list">
@@ -206,21 +220,36 @@ function ChooseDirection() {
 
                 <button 
                   className="choose-direction__card-button"
-                  onClick={() => {
-                    const element = document.querySelector('#booking-form')
-                    if (element) {
-                      const headerHeight = 70
-                      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-                      const offsetPosition = elementPosition - headerHeight
-                      window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                      })
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    // На мобильных открываем аккордеон, на десктопе скроллим к форме
+                    if (isMobile) {
+                      const newExpanded = new Set(expandedCards)
+                      if (newExpanded.has(direction.id)) {
+                        newExpanded.delete(direction.id)
+                      } else {
+                        newExpanded.add(direction.id)
+                      }
+                      setExpandedCards(newExpanded)
+                    } else {
+                      const element = document.querySelector('#booking-form')
+                      if (element) {
+                        const headerHeight = 70
+                        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+                        const offsetPosition = elementPosition - headerHeight
+                        window.scrollTo({
+                          top: offsetPosition,
+                          behavior: 'smooth'
+                        })
+                      }
                     }
                   }}
                 >
-                  Подробнее о направлении
-                  <ArrowRight size={18} />
+                  {isMobile && expandedCards.has(direction.id) ? 'Свернуть' : 'Подробнее о направлении'}
+                  <ArrowRight 
+                    size={18} 
+                    className={`choose-direction__card-button-icon ${isMobile && expandedCards.has(direction.id) ? 'choose-direction__card-button-icon--rotated' : ''}`}
+                  />
                 </button>
               </div>
             ))}

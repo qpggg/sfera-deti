@@ -164,7 +164,22 @@ function Header() {
       <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
         <div className="container">
           <div className="header__content">
-            <Link to="/" className="header__logo">
+            <Link 
+              to="/" 
+              className="header__logo" 
+              onClick={(e) => {
+                setIsMenuOpen(false)
+                // Если мы на главной странице, скроллим вверх
+                if (location.pathname === '/') {
+                  e.preventDefault()
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                  })
+                }
+                // Если мы не на главной странице, переходим на неё (скролл произойдет автоматически)
+              }}
+            >
               СФЕРА
             </Link>
             
@@ -179,6 +194,29 @@ function Header() {
                   {item.label}
                 </Link>
               ))}
+              {/* Кнопка "Записаться" в мобильном меню */}
+              <button
+                className="header__nav-button"
+                onClick={() => {
+                  setIsMenuOpen(false)
+                  if (location.pathname === '/') {
+                    const element = document.querySelector('#booking-form')
+                    if (element) {
+                      const headerHeight = 70
+                      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+                      const offsetPosition = elementPosition - headerHeight
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      })
+                    }
+                  } else {
+                    window.location.href = '/#booking-form'
+                  }
+                }}
+              >
+                Записаться
+              </button>
             </nav>
             
             <div className="header__actions">
@@ -214,6 +252,14 @@ function Header() {
           </div>
         </div>
       </header>
+
+      {/* Overlay для мобильного меню */}
+      {isMenuOpen && (
+        <div 
+          className="header__overlay"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
 
       {modalType && (
         <ModalForms

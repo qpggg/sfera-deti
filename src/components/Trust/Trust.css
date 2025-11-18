@@ -350,33 +350,66 @@
 }
 
 @media (max-width: 768px) {
+  /* Вернуть в одну колонку, но с уменьшенными размерами */
   .trust__grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
+  }
+  
+  /* Нижний ряд - тоже в одну колонку */
+  .trust__grid-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-width: 100%;
+  }
+  
+  .trust__grid-bottom .trust__card {
+    max-width: 100%;
+    min-width: auto;
   }
   
   .trust {
     padding: var(--spacing-lg) 0;
   }
   
+  /* Уменьшить размер карточек на мобильных */
   .trust__card {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
+    border-radius: 20px;
   }
   
   .trust__card-icon-wrapper {
-    width: 64px;
-    height: 64px;
+    width: 56px;
+    height: 56px;
+    margin-bottom: var(--spacing-sm);
   }
   
   .trust__card-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 16px;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
   }
   
   .trust__card-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .trust__card-value {
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+    margin-bottom: 0.25rem;
+  }
+  
+  .trust__card-label {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+  
+  .trust__card-description {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    margin-top: var(--spacing-xs);
   }
 }
 
