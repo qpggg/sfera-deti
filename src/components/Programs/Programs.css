@@ -36,8 +36,8 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
-  border: 2px solid rgba(107, 179, 208, 0.2);
-  box-shadow: 0 4px 20px rgba(107, 179, 208, 0.08);
+  border: 2px solid rgba(0, 151, 184, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 151, 184, 0.08);
   opacity: 0;
   transform: translate3d(0, 20px, 0);
   animation: fadeInUp 0.6s ease forwards;
@@ -57,7 +57,7 @@
 .programs__card:hover {
   transform: translate3d(0, -8px, 0);
   border-color: var(--card-color);
-  box-shadow: 0 12px 45px rgba(107, 179, 208, 0.2);
+  box-shadow: 0 12px 45px rgba(0, 151, 184, 0.2);
 }
 
 .programs__gradient {

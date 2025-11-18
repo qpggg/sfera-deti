@@ -140,7 +140,7 @@ function BookingForm() {
     // Запускаем конфетти
     const duration = 3000
     const animationEnd = Date.now() + duration
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0, colors: ['#6bb3d0', '#5aabd0', '#7db8d0', '#9dd0e8'] }
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0, colors: ['#0097B8', '#00A3C8', '#00B8D4', '#006D8F'] }
     
     const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min
     

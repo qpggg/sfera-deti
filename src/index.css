@@ -1,13 +1,13 @@
 :root {
-  /* Цветовая палитра - яркая голубая */
+  /* Цветовая палитра - темный циан */
   --color-white: #ffffff;
   --color-milk: #fafbfc;
   --color-graphite: #1a1a1a;
-  --color-sand: #7db8d0;
-  --color-accent: #6bb3d0;
-  --color-accent-dark: #4a9bb8;
-  --color-accent-light: #9dd0e8;
-  --color-accent-medium: #7db8d0;
+  --color-sand: #00A3C8;
+  --color-accent: #0097B8;
+  --color-accent-dark: #006D8F;
+  --color-accent-light: #00B8D4;
+  --color-accent-medium: #00A3C8;
   --color-text: #2c2c2c;
   --color-text-light: #6b6b6b;
   

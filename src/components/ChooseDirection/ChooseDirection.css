@@ -30,8 +30,8 @@
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 20% 50%, rgba(107, 179, 208, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 50%, rgba(125, 184, 208, 0.08) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(0, 151, 184, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(0, 163, 200, 0.08) 0%, transparent 50%);
   z-index: 1;
 }
 
@@ -42,8 +42,8 @@
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(107, 179, 208, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(107, 179, 208, 0.015) 1px, transparent 1px);
+    linear-gradient(rgba(0, 151, 184, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 151, 184, 0.015) 1px, transparent 1px);
   background-size: 50px 50px;
   opacity: 0.3;
   z-index: 1;
@@ -66,7 +66,7 @@
   border-radius: 50%;
   opacity: 0.4;
   animation: float infinite ease-in-out;
-  box-shadow: 0 0 8px rgba(107, 179, 208, 0.4);
+  box-shadow: 0 0 8px rgba(0, 151, 184, 0.4);
   will-change: transform, opacity;
   transform: translateZ(0);
   contain: layout style paint;
@@ -146,8 +146,8 @@
   background: var(--color-white);
   border-radius: 24px;
   padding: var(--spacing-lg);
-  border: 2px solid rgba(107, 179, 208, 0.2);
-  box-shadow: 0 4px 20px rgba(107, 179, 208, 0.08);
+  border: 2px solid rgba(0, 151, 184, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 151, 184, 0.08);
   transition: var(--transition);
   cursor: pointer;
   opacity: 0;
@@ -159,13 +159,13 @@
 
 .choose-direction__card:hover {
   transform: translateY(-8px);
-  border-color: var(--card-color, rgba(107, 179, 208, 0.4));
-  box-shadow: 0 12px 45px rgba(107, 179, 208, 0.2);
+  border-color: var(--card-color, rgba(0, 151, 184, 0.4));
+  box-shadow: 0 12px 45px rgba(0, 151, 184, 0.2);
 }
 
 .choose-direction__card--active {
-  border-color: var(--card-color, rgba(107, 179, 208, 0.5));
-  box-shadow: 0 12px 45px rgba(107, 179, 208, 0.25);
+  border-color: var(--card-color, rgba(0, 151, 184, 0.5));
+  box-shadow: 0 12px 45px rgba(0, 151, 184, 0.25);
 }
 
 .choose-direction__card-header {
@@ -184,7 +184,7 @@
   justify-content: center;
   color: var(--color-white);
   flex-shrink: 0;
-  box-shadow: 0 4px 15px rgba(107, 179, 208, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 151, 184, 0.3);
   transition: var(--transition);
 }
 
@@ -270,7 +270,7 @@
   padding: 0.75rem 1.5rem;
   background: transparent;
   color: var(--card-color, var(--color-accent));
-  border: 2px solid var(--card-color, rgba(107, 179, 208, 0.3));
+  border: 2px solid var(--card-color, rgba(0, 151, 184, 0.3));
   border-radius: 50px;
   font-size: 0.9375rem;
   font-weight: 600;
@@ -286,7 +286,7 @@
   background: var(--card-color, var(--color-accent));
   color: var(--color-white);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(107, 179, 208, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 151, 184, 0.3);
 }
 
 @keyframes fadeInUp {
