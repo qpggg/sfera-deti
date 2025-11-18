@@ -7,11 +7,25 @@ function Hero() {
   const [isVisible, setIsVisible] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 })
   const [modalType, setModalType] = useState<'booking' | 'presentation' | 'consultation' | 'excursion' | null>(null)
+  const [onlineUsers, setOnlineUsers] = useState(0)
   const rafRef = useRef<number>()
   const lastUpdateRef = useRef(0)
 
   useEffect(() => {
     setIsVisible(true)
+    
+    // Симуляция онлайн пользователей (3-7)
+    const baseUsers = 3 + Math.floor(Math.random() * 5)
+    setOnlineUsers(baseUsers)
+    
+    // Периодическое изменение числа пользователей
+    const userInterval = setInterval(() => {
+      setOnlineUsers(prev => {
+        const change = Math.random() > 0.5 ? 1 : -1
+        const newValue = prev + change
+        return Math.max(2, Math.min(8, newValue))
+      })
+    }, 15000) // Каждые 15 секунд
     
     const handleMouseMove = (e: MouseEvent) => {
       const now = Date.now()
@@ -34,6 +48,7 @@ function Hero() {
     window.addEventListener('mousemove', handleMouseMove, { passive: true })
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
+      clearInterval(userInterval)
       if (rafRef.current) {
         cancelAnimationFrame(rafRef.current)
       }
@@ -99,6 +114,11 @@ function Hero() {
       
       <div className="container">
         <div className="hero__content">
+          <div className="hero__live-indicator">
+            <span className="hero__live-pulse"></span>
+            <span className="hero__live-text">Сейчас на сайте: <strong>{onlineUsers}</strong></span>
+          </div>
+          
           <div className="hero__badge">
             <Zap size={16} />
             <span>Центр дополнительного образования для детей 3–17 лет</span>

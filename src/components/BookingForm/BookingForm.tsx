@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { Phone, User, Calendar, MessageSquare, CheckCircle, Sparkles, ArrowRight, Clock, UserCircle, Info, Gift, Shield } from 'lucide-react'
+import confetti from 'canvas-confetti'
 import './BookingForm.css'
 
 function BookingForm() {
@@ -17,6 +18,13 @@ function BookingForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
+
+  // Вычисляем прогресс заполнения формы
+  const formProgress = useMemo(() => {
+    const requiredFields = ['parentFullName', 'childFullName', 'childAge', 'phone', 'source']
+    const filledFields = requiredFields.filter(field => formData[field as keyof typeof formData].trim() !== '')
+    return (filledFields.length / requiredFields.length) * 100
+  }, [formData])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -129,6 +137,34 @@ function BookingForm() {
     setIsSubmitted(true)
     setErrors({})
     
+    // Запускаем конфетти
+    const duration = 3000
+    const animationEnd = Date.now() + duration
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0, colors: ['#6bb3d0', '#5aabd0', '#7db8d0', '#9dd0e8'] }
+    
+    const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min
+    
+    const interval = window.setInterval(() => {
+      const timeLeft = animationEnd - Date.now()
+      
+      if (timeLeft <= 0) {
+        return clearInterval(interval)
+      }
+      
+      const particleCount = 50 * (timeLeft / duration)
+      
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+      })
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+      })
+    }, 250)
+    
     // Сброс формы через 5 секунд
     setTimeout(() => {
       setIsSubmitted(false)
@@ -183,6 +219,17 @@ function BookingForm() {
                 <span>Без обязательств</span>
               </div>
             </div>
+            {/* Прогресс-бар заполнения формы */}
+            {formProgress > 0 && formProgress < 100 && (
+              <div className="booking-form__progress-bar">
+                <div 
+                  className="booking-form__progress-fill"
+                  style={{ width: `${formProgress}%` }}
+                >
+                  <span className="booking-form__progress-text">{Math.round(formProgress)}%</span>
+                </div>
+              </div>
+            )}
           </div>
           
           <form className="booking-form__form" onSubmit={handleSubmit}>

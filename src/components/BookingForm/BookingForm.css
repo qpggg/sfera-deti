@@ -208,6 +208,52 @@
   flex-shrink: 0;
 }
 
+/* Прогресс-бар заполнения формы */
+.booking-form__progress-bar {
+  margin-top: var(--spacing-md);
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 8px;
+  background: rgba(107, 179, 208, 0.15);
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.8s ease 0.5s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.booking-form__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6bb3d0 0%, #5aabd0 50%, #4a9bb8 100%);
+  background-size: 200% 100%;
+  border-radius: 50px;
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+  animation: progressShine 2s ease-in-out infinite;
+  box-shadow: 0 2px 10px rgba(107, 179, 208, 0.4);
+}
+
+@keyframes progressShine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.booking-form__progress-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
 .booking-form__form {
   background: var(--color-white);
   border-radius: 32px;
@@ -371,8 +417,25 @@
   outline: none;
   border-color: var(--color-accent);
   background: var(--color-white);
-  box-shadow: 0 4px 20px rgba(107, 179, 208, 0.15);
-  transform: translate3d(0, -2px, 0);
+  box-shadow: 
+    0 0 0 4px rgba(107, 179, 208, 0.12),
+    0 8px 30px rgba(107, 179, 208, 0.2);
+  transform: translate3d(0, -3px, 0) scale(1.005);
+}
+
+/* Живая валидация - зеленая рамка для валидных полей */
+.booking-form__input:valid:not(:placeholder-shown),
+.booking-form__textarea:valid:not(:placeholder-shown) {
+  border-color: #4CAF50;
+  background: linear-gradient(180deg, rgba(76, 175, 80, 0.03) 0%, #ffffff 100%);
+}
+
+.booking-form__input:valid:not(:placeholder-shown):focus,
+.booking-form__textarea:valid:not(:placeholder-shown):focus {
+  border-color: #4CAF50;
+  box-shadow: 
+    0 0 0 4px rgba(76, 175, 80, 0.12),
+    0 8px 30px rgba(76, 175, 80, 0.2);
 }
 
 .booking-form__input::placeholder,
