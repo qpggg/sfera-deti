@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "title": "Зал для занятий",
+    "category": "Пространство",
+    "prompt": "Professional interior photography of a modern, premium children's development center classroom. Bright, spacious room with natural light streaming through large windows. Clean, minimalist design with soft blue and white color palette. Modern furniture: low tables, ergonomic chairs, soft floor mats in calming colors. Educational materials neatly organized on shelves. Warm, inviting atmosphere with subtle decorative elements. High-end architectural photography style, shallow depth of field, soft shadows, professional lighting, 85mm lens perspective, color grading with muted blues and whites, ultra-realistic, 8K quality, natural textures, premium aesthetic."
+  },
+  {
+    "id": 2,
+    "title": "Дети на занятии",
+    "category": "Занятия",
+    "prompt": "Candid lifestyle photography of children (ages 5-8) engaged in a development activity. Small group of 4-6 children sitting in a circle, focused and happy expressions. Natural, unposed moments showing genuine engagement. Soft, diffused natural lighting creating warm atmosphere. Children wearing comfortable, modern clothing in soft colors. Background: clean, modern classroom with educational materials visible but blurred. Professional documentary photography style, authentic emotions, shallow depth of field focusing on children's faces, warm color temperature, natural skin tones, premium lifestyle photography aesthetic, ultra-realistic, 8K quality, capturing genuine moments of learning and interaction."
+  },
+  {
+    "id": 3,
+    "title": "Творческая мастерская",
+    "category": "Творчество",
+    "prompt": "Professional product and interior photography of a creative art studio space in a premium children's center. Bright, inspiring room with art supplies beautifully displayed: paintbrushes, canvases, colored pencils organized in modern storage. Natural light combined with soft studio lighting. Children's artwork displayed on walls in elegant frames. Work tables with art materials arranged aesthetically. Soft blue and white color scheme with colorful art supplies as accents. High-end interior design photography, shallow depth of field, professional composition, natural textures of materials, premium aesthetic, ultra-realistic, 8K quality, warm and inviting atmosphere, architectural photography style."
+  },
+  {
+    "id": 4,
+    "title": "Игровая зона",
+    "category": "Пространство",
+    "prompt": "Premium lifestyle photography of a modern play area in a children's development center with children actively playing. 3-5 children (ages 4-7) engaged in play activities with calm, natural expressions. Children playing with educational toys, building blocks, and age-appropriate play equipment. Subtle, restrained emotions: gentle smiles, quiet contentment, soft expressions of interest, peaceful concentration. Natural, candid moments showing children naturally absorbed in their activities without exaggerated expressions. Spacious, safe play zone with soft, colorful play mats, modern educational toys arranged aesthetically. Clean, organized space with natural light creating warm atmosphere. Soft blue, white, and warm accent colors. Professional documentary photography style, shallow depth of field, natural skin tones, soft color grading, premium lifestyle photography aesthetic, ultra-realistic, 8K quality, capturing authentic, understated moments of play, professional composition, avoiding overly expressive faces, natural and relaxed atmosphere."
+  },
+  {
+    "id": 5,
+    "title": "Групповое занятие",
+    "category": "Занятия",
+    "prompt": "Professional lifestyle photography capturing a group learning session at a premium children's development center. 6-8 children (ages 4-7) sitting in a semi-circle, engaged in an interactive activity with a teacher. Children showing calm, natural expressions: soft smiles, quiet curiosity, gentle focus, peaceful engagement. Subtle, restrained emotions - children listening attentively, occasionally raising hands calmly, leaning forward with quiet interest, sharing quiet moments of understanding with peers. Teacher in modern, professional attire interacting warmly but calmly with children, creating peaceful learning atmosphere. Soft, natural lighting creating warm, inviting atmosphere. Background: modern classroom with educational materials subtly visible. Documentary photography style, natural and understated expressions, shallow depth of field, soft color grading, natural skin tones, premium lifestyle photography aesthetic, ultra-realistic, 8K quality, capturing genuine but restrained moments of learning, professional composition, avoiding exaggerated expressions, natural and relaxed mood."
+  },
+  {
+    "id": 6,
+    "title": "Рабочее место",
+    "category": "Пространство",
+    "prompt": "Professional lifestyle photography of a modern, ergonomic workspace area in a premium children's development center with children actively working. 2-4 children (ages 5-8) sitting at individual workstations, engaged in creative or educational tasks. Children showing calm, natural expressions: quiet concentration, peaceful focus, gentle satisfaction, soft moments of understanding. Subtle, restrained emotions - children working thoughtfully, holding pencils or materials naturally, occasionally looking up with calm, curious expressions. Clean, minimalist design with modern, child-sized desks and chairs in soft blue and white tones. Educational materials and supplies organized in elegant storage solutions. Natural light from large windows creating bright, inspiring atmosphere. Professional documentary photography style, shallow depth of field focusing on children's hands and work, natural and understated facial expressions, natural skin tones, soft color grading, premium lifestyle photography aesthetic, ultra-realistic, 8K quality, capturing genuine but restrained moments of focused work, professional composition, soft shadows, sophisticated color palette (soft blues, whites, warm accents), avoiding exaggerated expressions, natural and peaceful atmosphere."
+  }
+]
+

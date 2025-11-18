@@ -1,0 +1,106 @@
+.why-sfera {
+  padding: var(--spacing-xl) 0;
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.why-sfera__header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.why-sfera__title {
+  color: var(--color-graphite);
+  margin-bottom: var(--spacing-sm);
+}
+
+.why-sfera__subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text);
+  max-width: 700px;
+  margin: 0 auto;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.why-sfera__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.why-sfera__card {
+  background: var(--color-white);
+  border-radius: 20px;
+  padding: var(--spacing-md);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 2px solid rgba(107, 179, 208, 0.2);
+  box-shadow: 0 4px 20px rgba(107, 179, 208, 0.08);
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  animation: fadeInUp 0.6s ease forwards;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  contain: layout style paint;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.why-sfera__card:hover {
+  transform: translate3d(0, -5px, 0);
+  box-shadow: 0 12px 45px rgba(107, 179, 208, 0.2);
+  border-color: var(--color-accent);
+}
+
+.why-sfera__icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  margin-bottom: var(--spacing-md);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.why-sfera__card:hover .why-sfera__icon {
+  transform: scale3d(1.1, 1.1, 1) rotate(5deg);
+}
+
+.why-sfera__card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-graphite);
+  margin-bottom: var(--spacing-xs);
+  font-family: var(--font-heading);
+  line-height: 1.4;
+}
+
+.why-sfera__card-description {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .why-sfera__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .why-sfera {
+    padding: var(--spacing-lg) 0;
+  }
+}
+

@@ -1,0 +1,219 @@
+import { useEffect, useRef, useState } from 'react'
+import { useMemo } from 'react'
+import { Heart, Users, Brain, Sparkles, ArrowRight, Activity, Palette, Zap } from 'lucide-react'
+import './ApproachMethodology.css'
+
+function ApproachMethodology() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
+
+  const particles = useMemo(() => {
+    return Array.from({ length: 15 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      delay: Math.random() * 3,
+      duration: 3 + Math.random() * 2
+    }))
+  }, [])
+
+  const features = [
+    {
+      icon: <Users size={28} />,
+      title: 'Мини-группы до 14 детей',
+      description: 'Максимальное внимание каждому ребёнку'
+    },
+    {
+      icon: <Brain size={28} />,
+      title: 'Педагоги с профильным образованием',
+      description: 'Опыт работы с детьми дошкольного и школьного возраста'
+    },
+    {
+      icon: <Heart size={28} />,
+      title: 'Куратор-психолог',
+      description: 'Контроль за психоэмоциональным состоянием'
+    },
+    {
+      icon: <Sparkles size={28} />,
+      title: 'Занятия в школе или саду',
+      description: 'Не нужно никуда водить — мы приходим к вам'
+    }
+  ]
+
+  return (
+    <section 
+      ref={sectionRef}
+      className={`approach-methodology ${isVisible ? 'approach-methodology--visible' : ''}`}
+      id="approach"
+    >
+      <div className="approach-methodology__background">
+        <div className="approach-methodology__overlay"></div>
+        <div className="approach-methodology__mesh"></div>
+        <div className="approach-methodology__particles">
+          {particles.map((particle) => (
+            <div 
+              key={particle.id} 
+              className="approach-methodology__particle" 
+              style={{
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
+                animationDelay: `${particle.delay}s`,
+                animationDuration: `${particle.duration}s`
+              }}
+            ></div>
+          ))}
+        </div>
+      </div>
+
+      <div className="container">
+        <div className="approach-methodology__content">
+          <div className="approach-methodology__header">
+            <h2 className="approach-methodology__title">
+              Единая методика развития личности, а не просто набор кружков
+            </h2>
+            
+            <div className="approach-methodology__intro">
+              <div className="approach-methodology__intro-text">
+                <span className="approach-methodology__highlight">В СФЕРЕ</span> ребёнок не "ходит на секцию" — 
+                он проходит <span className="approach-methodology__highlight">путь развития личности</span>.
+              </div>
+            </div>
+
+            <div className="approach-methodology__directions-info-block">
+              <div className="approach-methodology__directions-info-content">
+                <p className="approach-methodology__directions-info-text">
+                  Мы развиваем детей через те направления, которые вам доступны
+                </p>
+                <div className="approach-methodology__directions-info-subtitle">
+                  <span className="approach-methodology__directions-info-label">НАПРАВЛЕНИЯ:</span>
+                  <span className="approach-methodology__directions-info-list">
+                    Гимнастика, каратэ, танцы, шахматы, ИЗО-студия, логопед, подготовка к школе
+                  </span>
+                </div>
+                <p className="approach-methodology__directions-info-cta">
+                  выбирайте то, что решает ваши задачи.
+                </p>
+              </div>
+              <div className="approach-methodology__directions-info-accent"></div>
+            </div>
+
+            <div className="approach-methodology__approach-block">
+              <div className="approach-methodology__approach-label">Наш подход:</div>
+              <div className="approach-methodology__approach-items">
+                <span className="approach-methodology__approach-item">мягкая адаптация</span>
+                <span className="approach-methodology__approach-divider">•</span>
+                <span className="approach-methodology__approach-item">мини-группы</span>
+                <span className="approach-methodology__approach-divider">•</span>
+                <span className="approach-methodology__approach-item">психологический контроль</span>
+              </div>
+            </div>
+
+            <div className="approach-methodology__directions-block">
+              <div className="approach-methodology__directions-label">
+                Развитие в трёх направлениях:
+              </div>
+              <div className="approach-methodology__directions-list">
+                <div className="approach-methodology__direction-item">
+                  <div className="approach-methodology__direction-icon">
+                    <Activity size={24} />
+                  </div>
+                  <span>Движение</span>
+                </div>
+                <div className="approach-methodology__direction-item">
+                  <div className="approach-methodology__direction-icon">
+                    <Palette size={24} />
+                  </div>
+                  <span>Творчество</span>
+                </div>
+                <div className="approach-methodology__direction-item">
+                  <div className="approach-methodology__direction-icon">
+                    <Brain size={24} />
+                  </div>
+                  <span>Мышление</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="approach-methodology__conclusion">
+              <div className="approach-methodology__conclusion-icon">
+                <Zap size={20} />
+              </div>
+              <p className="approach-methodology__conclusion-text">
+                Направления (гимнастика, карате, танцы, шахматы, ИЗО и другие) — это 
+                <span className="approach-methodology__conclusion-accent"> инструменты нашей методики</span>, 
+                а не отдельные, разрозненные кружки.
+              </p>
+            </div>
+          </div>
+
+          <div className="approach-methodology__features">
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className="approach-methodology__feature"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="approach-methodology__feature-icon">
+                  {feature.icon}
+                </div>
+                <h3 className="approach-methodology__feature-title">
+                  {feature.title}
+                </h3>
+                <p className="approach-methodology__feature-description">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="approach-methodology__cta">
+            <button 
+              className="approach-methodology__button"
+              onClick={() => {
+                const element = document.querySelector('#directions')
+                if (element) {
+                  const headerHeight = 70
+                  const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+                  const offsetPosition = elementPosition - headerHeight
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  })
+                }
+              }}
+            >
+              Посмотреть, какие направления подойдут вашему ребёнку
+              <ArrowRight size={20} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default ApproachMethodology
+

@@ -1,0 +1,195 @@
+.pricing {
+  padding: var(--spacing-xl) 0;
+  background: linear-gradient(180deg, #f8f9fa 0%, #fafbfc 100%);
+}
+
+.pricing__header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.pricing__title {
+  color: var(--color-graphite);
+  margin-bottom: var(--spacing-sm);
+}
+
+.pricing__subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-light);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.pricing__card {
+  background: var(--color-white);
+  border-radius: 24px;
+  padding: var(--spacing-lg);
+  position: relative;
+  border: 2px solid rgba(141, 180, 197, 0.18);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing__card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-accent);
+}
+
+.pricing__card--popular {
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 40px rgba(141, 180, 197, 0.18);
+  transform: scale(1.05);
+}
+
+.pricing__card--popular:hover {
+  transform: scale(1.05) translateY(-8px);
+}
+
+.pricing__badge {
+  position: absolute;
+  top: -12px;
+  right: var(--spacing-md);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  color: var(--color-white);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  box-shadow: 0 4px 15px rgba(141, 180, 197, 0.25);
+}
+
+.pricing__badge--free {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+}
+
+.pricing__card-header {
+  margin-bottom: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+}
+
+.pricing__card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-graphite);
+  margin-bottom: var(--spacing-xs);
+  font-family: var(--font-heading);
+}
+
+.pricing__card-description {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pricing__card-price {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid rgba(141, 180, 197, 0.18);
+}
+
+.pricing__price-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-graphite);
+  font-family: var(--font-heading);
+}
+
+.pricing__price-period {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  margin-left: 0.25rem;
+}
+
+.pricing__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-md) 0;
+  flex: 1;
+}
+
+.pricing__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.pricing__feature svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pricing__button {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--color-graphite) 0%, var(--color-accent-dark) 100%);
+  color: var(--color-white);
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: auto;
+}
+
+.pricing__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(44, 44, 44, 0.3);
+}
+
+.pricing__card--popular .pricing__button {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+}
+
+.pricing__note {
+  text-align: center;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid rgba(141, 180, 197, 0.18);
+}
+
+.pricing__note p {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .pricing__card--popular {
+    transform: scale(1);
+  }
+  
+  .pricing__card--popular:hover {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pricing {
+    padding: var(--spacing-lg) 0;
+  }
+}
+
