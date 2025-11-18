@@ -2,7 +2,10 @@
   position: relative;
   padding: var(--spacing-xl) 0;
   overflow: hidden;
-  background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
+  background: 
+    radial-gradient(at 10% 50%, rgba(107, 179, 208, 0.05) 0%, transparent 50%),
+    radial-gradient(at 90% 50%, rgba(125, 184, 208, 0.04) 0%, transparent 50%),
+    linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease, transform 1s ease;
