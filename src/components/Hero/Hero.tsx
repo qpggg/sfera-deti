@@ -51,19 +51,6 @@ function Hero() {
     }))
   }, [])
 
-  const handleScrollToForm = () => {
-    const element = document.querySelector('#booking-form')
-    if (element) {
-      const headerHeight = 70
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-      const offsetPosition = elementPosition - headerHeight
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
-    }
-  }
-
   return (
     <section className={`hero ${isVisible ? 'hero--visible' : ''}`}>
       <div className="hero__background">
