@@ -180,7 +180,7 @@ function Header() {
                 // Если мы не на главной странице, переходим на неё (скролл произойдет автоматически)
               }}
             >
-              СФЕРА
+              <img src="/logo.png" alt="СФЕРА" className="header__logo-img" />
             </Link>
             
             <nav className={`header__nav ${isMenuOpen ? 'header__nav--open' : ''}`}>

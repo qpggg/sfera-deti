@@ -24,22 +24,26 @@
 }
 
 .header__logo {
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: var(--color-graphite);
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  font-family: var(--font-heading);
   transition: var(--transition);
-  letter-spacing: -0.5px;
-  white-space: nowrap;
   flex-shrink: 0;
   z-index: 3;
   position: relative;
   margin-left: -3rem;
 }
 
-.header__logo:hover {
-  color: var(--color-accent-dark);
+.header__logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  transition: var(--transition);
+}
+
+.header__logo:hover .header__logo-img {
+  opacity: 0.8;
+  transform: scale(1.05);
 }
 
 .header__nav {
@@ -246,12 +250,12 @@
 @media (max-width: 768px) {
   /* Исправить логотип на мобильных */
   .header__logo {
-    font-size: 1.5rem;
     margin-left: 0;
     padding-left: var(--spacing-sm);
-    max-width: calc(100vw - 120px);
-    overflow: hidden;
-    text-overflow: ellipsis;
+  }
+  
+  .header__logo-img {
+    height: 32px;
   }
   
   /* Скрыть навигацию на мобильных (показывается только через бургер) */
