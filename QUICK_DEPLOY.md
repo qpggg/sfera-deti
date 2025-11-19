@@ -19,15 +19,14 @@ git clone https://github.com/qpggg/sfera-deti.git .
 npm install
 npm run build
 
-# 5. Настройка nginx (замените your-domain.com на ваш домен)
+# 5. Настройка nginx
 sudo cp nginx.conf.example /etc/nginx/sites-available/sfera-deti
-sudo sed -i 's/your-domain.com/ВАШ_ДОМЕН/g' /etc/nginx/sites-available/sfera-deti
 sudo ln -s /etc/nginx/sites-available/sfera-deti /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl reload nginx
 
 # 6. Настройка SSL
-sudo certbot --nginx -d ВАШ_ДОМЕН -d www.ВАШ_ДОМЕН
+sudo certbot --nginx -d sfera-deti.ru -d www.sfera-deti.ru
 
 # 7. Делаем скрипт деплоя исполняемым
 chmod +x deploy.sh

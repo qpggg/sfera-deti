@@ -46,7 +46,7 @@ sudo cp nginx.conf.example /etc/nginx/sites-available/sfera-deti
 sudo nano /etc/nginx/sites-available/sfera-deti
 ```
 
-Замените `your-domain.com` на ваш домен.
+Домен уже настроен: `sfera-deti.ru`
 
 ### Активация конфигурации
 ```bash
@@ -58,7 +58,7 @@ sudo systemctl reload nginx
 ## Шаг 5: Настройка SSL (Let's Encrypt)
 
 ```bash
-sudo certbot --nginx -d your-domain.com -d www.your-domain.com
+sudo certbot --nginx -d sfera-deti.ru -d www.sfera-deti.ru
 ```
 
 Certbot автоматически:
@@ -118,7 +118,7 @@ pm2 startup
 
 ## Проверка
 
-Откройте в браузере: `https://your-domain.com`
+Откройте в браузере: `https://sfera-deti.ru`
 
 ## Обновление сайта
 
