@@ -31,6 +31,11 @@ npm ci --production=false
 echo "🔨 Собираем проект..."
 npm run build
 
+# Исправляем путь для 23.jpg (Vite добавляет /public/ к пути в CSS)
+echo "🔧 Исправляем путь для изображений..."
+mkdir -p dist/public
+cp dist/23.jpg dist/public/23.jpg 2>/dev/null || true
+
 # Перезапускаем nginx
 echo "🔄 Перезапускаем nginx..."
 sudo systemctl reload nginx
