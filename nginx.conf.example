@@ -1,0 +1,65 @@
+# Пример конфигурации Nginx для сайта sfera-deti
+# Скопируйте этот файл в /etc/nginx/sites-available/sfera-deti
+# Затем создайте симлинк: sudo ln -s /etc/nginx/sites-available/sfera-deti /etc/nginx/sites-enabled/
+# Проверьте конфигурацию: sudo nginx -t
+# Перезагрузите nginx: sudo systemctl reload nginx
+
+# HTTP сервер - редирект на HTTPS
+server {
+    listen 80;
+    listen [::]:80;
+    server_name your-domain.com www.your-domain.com;
+
+    # Редирект на HTTPS
+    return 301 https://$server_name$request_uri;
+}
+
+# HTTPS сервер
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name your-domain.com www.your-domain.com;
+
+    # SSL сертификаты (после настройки Let's Encrypt)
+    ssl_certificate /etc/letsencrypt/live/your-domain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/your-domain.com/privkey.pem;
+
+    # SSL настройки безопасности
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+
+    # Корневая директория со статическими файлами
+    root /var/www/sfera-deti/dist;
+    index index.html;
+
+    # Логи
+    access_log /var/log/nginx/sfera-deti-access.log;
+    error_log /var/log/nginx/sfera-deti-error.log;
+
+    # Gzip сжатие
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css text/xml text/javascript application/x-javascript application/xml+rss application/javascript application/json;
+
+    # Основная локация
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Кеширование статических файлов
+    location ~* \.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
+    # Безопасность заголовков
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header Referrer-Policy "no-referrer-when-downgrade" always;
+}
+
