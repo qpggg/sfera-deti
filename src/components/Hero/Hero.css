@@ -232,9 +232,9 @@
 
 .hero__description-tagline {
   font-size: clamp(1.25rem, 3vw, 1.75rem);
-  color: var(--color-text);
+  color: var(--color-graphite);
   margin: 0 auto var(--spacing-sm) auto;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.7;
   text-align: center;
   max-width: 100%;
@@ -244,7 +244,7 @@
 
 .hero__description-block {
   position: relative;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(250, 251, 252, 0.8) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 251, 252, 0.9) 50%, rgba(250, 251, 252, 0.8) 100%);
   border-radius: 32px;
   padding: var(--spacing-md) var(--spacing-xl);
   margin: 0 auto var(--spacing-md);
@@ -262,6 +262,23 @@
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+.hero__description-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/23.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px) brightness(1.1);
+  opacity: 0.3;
+  z-index: 0;
+  transform: scale(1.1);
 }
 
 @keyframes subtlePulse {
@@ -284,8 +301,8 @@
 
 .hero__description-text {
   font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-  font-weight: 500;
-  color: var(--color-graphite);
+  font-weight: 600;
+  color: #1a1a1a;
   line-height: 1.6;
   margin-bottom: var(--spacing-sm);
   font-family: var(--font-heading);
@@ -294,12 +311,12 @@
 
 .hero__description-subtitle {
   font-size: clamp(0.95rem, 2vw, 1.125rem);
-  font-weight: 400;
-  color: var(--color-text);
+  font-weight: 500;
+  color: #2a2a2a;
   line-height: 1.6;
   margin-bottom: var(--spacing-sm);
   font-style: italic;
-  opacity: 0.85;
+  opacity: 0.95;
 }
 
 .hero__description-button {

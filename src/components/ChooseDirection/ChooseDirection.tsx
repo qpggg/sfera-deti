@@ -9,6 +9,7 @@ interface Direction {
   pains: string[]
   results: string[]
   color: string
+  image?: string
 }
 
 function ChooseDirection() {
@@ -68,7 +69,8 @@ function ChooseDirection() {
       icon: <Activity size={32} />,
       pains: ['Слабая моторика', 'Плохая осанка', 'Мало движения', 'Низкая выносливость', 'Плохая координация'],
       results: ['Лёгкость движений', 'Уверенность в теле', 'Крепкая спина', 'Дисциплина без давления'],
-      color: '#0097B8'
+      color: '#0097B8',
+      image: '/7.jpg'
     },
     {
       id: 'karate',
@@ -76,7 +78,8 @@ function ChooseDirection() {
       icon: <Shield size={32} />,
       pains: ['Стеснительность', 'Страх перед ровесниками', 'Плохая концентрация', 'Низкая сила воли'],
       results: ['Уверенность', 'Самоконтроль', 'Уважение к правилам', 'Способность держать удар без агрессии'],
-      color: '#00A3C8'
+      color: '#00A3C8',
+      image: '/8.jpg'
     },
     {
       id: 'dance',
@@ -84,7 +87,8 @@ function ChooseDirection() {
       icon: <Music size={32} />,
       pains: ['Скованность', 'Плохая пластика', 'Проблемы с самооценкой'],
       results: ['Раскрепощение', 'Чувство ритма', 'Уверенность перед публикой'],
-      color: '#00A3C8'
+      color: '#00A3C8',
+      image: '/9.jpg'
     },
     {
       id: 'chess',
@@ -92,7 +96,8 @@ function ChooseDirection() {
       icon: <Brain size={32} />,
       pains: ['Нет концентрации', 'Плохо думает наперёд', 'Отсутствие усидчивости'],
       results: ['Стратегическое мышление', 'Внимание', 'Терпение'],
-      color: '#006D8F'
+      color: '#006D8F',
+      image: '/10.jpg'
     },
     {
       id: 'art',
@@ -100,7 +105,8 @@ function ChooseDirection() {
       icon: <Palette size={32} />,
       pains: ['Проблемы с моторикой', 'Зажатые эмоции', 'Слабое креативное мышление'],
       results: ['Развитие мелкой моторики', 'Экологичный выход эмоций', 'Творческое мышление'],
-      color: '#00B8D4'
+      color: '#00B8D4',
+      image: '/11.jpg'
     },
     {
       id: 'school-prep',
@@ -108,7 +114,8 @@ function ChooseDirection() {
       icon: <BookOpen size={32} />,
       pains: ['Не готов к школе', 'Слабая усидчивость', 'Проблемы с концентрацией', 'Недостаток знаний'],
       results: ['Готовность к школе', 'Усидчивость', 'Концентрация внимания', 'Базовые знания'],
-      color: '#0097B8'
+      color: '#0097B8',
+      image: '/12.jpg'
     },
     {
       id: 'speech',
@@ -116,7 +123,8 @@ function ChooseDirection() {
       icon: <MessageSquare size={32} />,
       pains: ['Нарушения речи', 'Проблемы с произношением', 'Задержка речевого развития'],
       results: ['Правильная речь', 'Чёткое произношение', 'Развитие речи'],
-      color: '#00A3C8'
+      color: '#00A3C8',
+      image: '/13.jpg'
     },
     {
       id: 'english',
@@ -124,7 +132,8 @@ function ChooseDirection() {
       icon: <Globe size={32} />,
       pains: ['Нет интереса к языку', 'Сложности с запоминанием', 'Боязнь говорить'],
       results: ['Интерес к языку', 'Хорошая память', 'Уверенность в общении'],
-      color: '#00A3C8'
+      color: '#00A3C8',
+      image: '/14.jpg'
     },
     {
       id: 'football',
@@ -132,7 +141,8 @@ function ChooseDirection() {
       icon: <Target size={32} />,
       pains: ['Мало движения', 'Слабая координация', 'Проблемы в команде'],
       results: ['Физическая активность', 'Координация', 'Командная работа'],
-      color: '#006D8F'
+      color: '#006D8F',
+      image: '/15.jpg'
     }
   ]
 
@@ -184,13 +194,41 @@ function ChooseDirection() {
                 } as React.CSSProperties}
                 onClick={() => setSelectedDirection(selectedDirection === direction.id ? null : direction.id)}
               >
+                {/* Фото сверху карточки */}
+                <div className="choose-direction__card-image-wrapper">
+                  {direction.image ? (
+                    <>
+                      <img 
+                        src={direction.image} 
+                        alt={direction.name}
+                        className="choose-direction__card-image"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement
+                          target.style.display = 'none'
+                          const placeholder = target.parentElement?.querySelector('.choose-direction__card-image-placeholder')
+                          if (placeholder) {
+                            (placeholder as HTMLElement).style.display = 'flex'
+                          }
+                        }}
+                      />
+                      <div className="choose-direction__card-image-placeholder" style={{ display: 'none' }}>
+                        <div className="choose-direction__card-image-icon">
+                          {direction.icon}
+                        </div>
+                        <p>Фото занятий</p>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="choose-direction__card-image-placeholder">
+                      <div className="choose-direction__card-image-icon">
+                        {direction.icon}
+                      </div>
+                      <p>Фото занятий</p>
+                    </div>
+                  )}
+                </div>
+
                 <div className="choose-direction__card-header">
-                  <div 
-                    className="choose-direction__card-icon"
-                    style={{ background: `linear-gradient(135deg, ${direction.color} 0%, ${direction.color}dd 100%)` }}
-                  >
-                    {direction.icon}
-                  </div>
                   <div className="choose-direction__card-info">
                     <h3 className="choose-direction__card-title">{direction.name}</h3>
                   </div>

@@ -137,22 +137,67 @@ function ApproachMethodology() {
               </div>
               <div className="approach-methodology__directions-list">
                 <div className="approach-methodology__direction-item">
-                  <div className="approach-methodology__direction-icon">
-                    <Activity size={24} />
+                  <div className="approach-methodology__direction-image-wrapper">
+                    <img 
+                      src="/16.jpg" 
+                      alt="Движение"
+                      className="approach-methodology__direction-image"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement
+                        target.style.display = 'none'
+                        const placeholder = target.parentElement?.querySelector('.approach-methodology__direction-image-placeholder')
+                        if (placeholder) {
+                          (placeholder as HTMLElement).style.display = 'flex'
+                        }
+                      }}
+                    />
+                    <div className="approach-methodology__direction-image-placeholder" style={{ display: 'none' }}>
+                      <Activity size={32} />
+                    </div>
                   </div>
-                  <span>Движение</span>
+                  <div className="approach-methodology__direction-badge">Движение</div>
                 </div>
                 <div className="approach-methodology__direction-item">
-                  <div className="approach-methodology__direction-icon">
-                    <Palette size={24} />
+                  <div className="approach-methodology__direction-image-wrapper">
+                    <img 
+                      src="/17.jpg" 
+                      alt="Творчество"
+                      className="approach-methodology__direction-image"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement
+                        target.style.display = 'none'
+                        const placeholder = target.parentElement?.querySelector('.approach-methodology__direction-image-placeholder')
+                        if (placeholder) {
+                          (placeholder as HTMLElement).style.display = 'flex'
+                        }
+                      }}
+                    />
+                    <div className="approach-methodology__direction-image-placeholder" style={{ display: 'none' }}>
+                      <Palette size={32} />
+                    </div>
                   </div>
-                  <span>Творчество</span>
+                  <div className="approach-methodology__direction-badge">Творчество</div>
                 </div>
                 <div className="approach-methodology__direction-item">
-                  <div className="approach-methodology__direction-icon">
-                    <Brain size={24} />
+                  <div className="approach-methodology__direction-image-wrapper">
+                    <img 
+                      src="/18.jpg" 
+                      alt="Мышление"
+                      className="approach-methodology__direction-image"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement
+                        target.style.display = 'none'
+                        const placeholder = target.parentElement?.querySelector('.approach-methodology__direction-image-placeholder')
+                        if (placeholder) {
+                          (placeholder as HTMLElement).style.display = 'flex'
+                        }
+                      }}
+                    />
+                    <div className="approach-methodology__direction-image-placeholder" style={{ display: 'none' }}>
+                      <Brain size={32} />
+                    </div>
                   </div>
-                  <span>Мышление</span>
+                  <div className="approach-methodology__direction-badge">Мышление</div>
                 </div>
               </div>
             </div>

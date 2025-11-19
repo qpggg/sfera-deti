@@ -42,25 +42,29 @@ function TeamSection() {
 
   const teamFeatures = [
     {
-      icon: <GraduationCap size={28} />,
+      icon: <GraduationCap size={32} />,
+      image: '/19.jpg',
       title: 'Все педагоги с профильным педагогическим образованием',
       description: 'Опыт работы с детьми дошкольного и школьного возраста',
       color: '#0097B8'
     },
     {
-      icon: <Award size={28} />,
+      icon: <Award size={32} />,
+      image: '/20.jpg',
       title: 'Профессионалы в своём направлении',
       description: 'Спорт, творчество, логика — каждый педагог эксперт в своей области',
       color: '#00A3C8'
     },
     {
-      icon: <Heart size={28} />,
+      icon: <Heart size={32} />,
+      image: '/21.jpg',
       title: 'Работают под кураторством психолога',
       description: 'Контроль за психоэмоциональным состоянием детей',
       color: '#00A3C8'
     },
     {
-      icon: <Users size={28} />,
+      icon: <Users size={32} />,
+      image: '/22.jpg',
       title: 'Персональный менеджер',
       description: 'Закреплён за каждым учреждением, курирует ежедневно каждого клиента',
       color: '#006D8F'
@@ -151,14 +155,23 @@ function TeamSection() {
                 onMouseEnter={() => setHoveredFeature(index)}
                 onMouseLeave={() => setHoveredFeature(null)}
               >
-                <div className="team-section__feature-icon-wrapper">
-                  <div 
-                    className="team-section__feature-icon"
-                    style={{ background: `linear-gradient(135deg, ${feature.color} 0%, ${feature.color}dd 100%)` }}
-                  >
+                <div className="team-section__feature-image-wrapper">
+                  <img 
+                    src={feature.image} 
+                    alt={feature.title}
+                    className="team-section__feature-image"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.style.display = 'none'
+                      const placeholder = target.parentElement?.querySelector('.team-section__feature-image-placeholder')
+                      if (placeholder) {
+                        (placeholder as HTMLElement).style.display = 'flex'
+                      }
+                    }}
+                  />
+                  <div className="team-section__feature-image-placeholder" style={{ display: 'none' }}>
                     {feature.icon}
                   </div>
-                  <div className="team-section__feature-icon-glow"></div>
                 </div>
                 <div className="team-section__feature-content">
                   <h3 className="team-section__feature-title">
