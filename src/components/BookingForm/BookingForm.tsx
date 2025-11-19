@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
-import { Phone, User, Calendar, MessageSquare, CheckCircle, Sparkles, ArrowRight, Clock, UserCircle, Info } from 'lucide-react'
+import { Phone, User, Calendar, MessageSquare, CheckCircle, ArrowRight, UserCircle, Info } from 'lucide-react'
 import confetti from 'canvas-confetti'
 import './BookingForm.css'
 
