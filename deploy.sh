@@ -16,7 +16,7 @@ if [ "$NODE_VERSION" -lt 18 ]; then
 fi
 
 # Переходим в директорию проекта
-cd /var/www/sfera-deti || exit 1
+cd /root/sfera-deti || exit 1
 
 # Получаем последние изменения из git
 echo "📥 Получаем изменения из git..."

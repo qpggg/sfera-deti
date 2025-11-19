@@ -32,7 +32,7 @@ server {
     ssl_session_timeout 10m;
 
     # Корневая директория со статическими файлами
-    root /var/www/sfera-deti/dist;
+    root /root/sfera-deti/dist;
     index index.html;
 
     # Логи

@@ -15,12 +15,12 @@ sudo apt-get install -y nodejs
 node --version  # Должно быть v20.x.x или выше
 npm --version
 
-# 2. Создание директории
-sudo mkdir -p /var/www/sfera-deti
-sudo chown -R $USER:$USER /var/www/sfera-deti
+# 2. Создание директории (или используйте существующую /root/sfera-deti)
+# sudo mkdir -p /root/sfera-deti
+# sudo chown -R $USER:$USER /root/sfera-deti
 
 # 3. Клонирование проекта
-cd /var/www/sfera-deti
+cd /root/sfera-deti
 git clone https://github.com/qpggg/sfera-deti.git .
 
 # 4. Установка зависимостей и сборка
@@ -45,7 +45,7 @@ chmod +x deploy.sh
 ## После каждого обновления на сервере:
 
 ```bash
-cd /var/www/sfera-deti
+cd /root/sfera-deti
 ./deploy.sh
 ```
 

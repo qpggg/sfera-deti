@@ -40,7 +40,7 @@ node --version
 
 ### После обновления Node.js:
 ```bash
-cd /var/www/sfera-deti
+cd /root/sfera-deti
 rm -rf node_modules package-lock.json
 npm install
 npm run build
@@ -51,7 +51,7 @@ npm run build
 Если Node.js версии ниже 18.5, можно понизить версию Vite:
 
 ```bash
-cd /var/www/sfera-deti
+cd /root/sfera-deti
 npm install vite@^5.4.0 --save-dev
 npm run build
 ```

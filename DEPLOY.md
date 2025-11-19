@@ -16,14 +16,16 @@ sudo apt install -y git nodejs npm nginx certbot python3-certbot-nginx
 
 ### Создание директории для проекта
 ```bash
-sudo mkdir -p /var/www/sfera-deti
-sudo chown -R $USER:$USER /var/www/sfera-deti
+# Проект находится в /root/sfera-deti
+# Если нужно создать директорию:
+# sudo mkdir -p /root/sfera-deti
+# sudo chown -R $USER:$USER /root/sfera-deti
 ```
 
 ## Шаг 2: Клонирование репозитория
 
 ```bash
-cd /var/www/sfera-deti
+cd /root/sfera-deti
 git clone https://github.com/qpggg/sfera-deti.git .
 ```
 
@@ -77,13 +79,13 @@ chmod +x deploy.sh
 
 Создайте файл на сервере:
 ```bash
-nano /var/www/sfera-deti/.git/hooks/post-receive
+nano /root/sfera-deti/.git/hooks/post-receive
 ```
 
 Содержимое:
 ```bash
 #!/bin/bash
-cd /var/www/sfera-deti
+cd /root/sfera-deti
 git reset --hard origin/main
 npm ci
 npm run build
@@ -92,14 +94,14 @@ sudo systemctl reload nginx
 
 Сделайте исполняемым:
 ```bash
-chmod +x /var/www/sfera-deti/.git/hooks/post-receive
+chmod +x /root/sfera-deti/.git/hooks/post-receive
 ```
 
 ## Шаг 7: Ручной деплой
 
 После каждого `git push`, на сервере выполните:
 ```bash
-cd /var/www/sfera-deti
+cd /root/sfera-deti
 ./deploy.sh
 ```
 
@@ -126,7 +128,7 @@ pm2 startup
 2. `git add .`
 3. `git commit -m "описание изменений"`
 4. `git push`
-5. На сервере: `cd /var/www/sfera-deti && ./deploy.sh`
+5. На сервере: `cd /root/sfera-deti && ./deploy.sh`
 
 ## Полезные команды
 
