@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
-import { Phone, User, Calendar, MessageSquare, CheckCircle, Sparkles, ArrowRight, Clock, UserCircle, Info, Gift, Shield } from 'lucide-react'
+import { Phone, User, Calendar, MessageSquare, CheckCircle, Sparkles, ArrowRight, Clock, UserCircle, Info } from 'lucide-react'
 import confetti from 'canvas-confetti'
 import './BookingForm.css'
 
@@ -70,7 +70,7 @@ function BookingForm() {
         if (cleanPhone.length < 10) return 'Введите корректный номер телефона'
         return ''
       case 'source':
-        if (!value.trim()) return 'Укажите источник информации'
+        if (!value.trim()) return 'Укажите ваш сад/школу'
         return ''
       default:
         return ''
@@ -195,30 +195,12 @@ function BookingForm() {
       <div className="container">
         <div className="booking-form__content">
           <div className="booking-form__header">
-            <div className="booking-form__header-badge">
-              <Sparkles size={18} />
-              <span>Начните прямо сейчас</span>
-            </div>
             <h2 className="booking-form__title">
-              Найти свою школу или детский сад
+              Начните прямо сейчас
             </h2>
             <p className="booking-form__subtitle">
               Оставьте заявку, и мы свяжемся с вами в течение 15 минут
             </p>
-            <div className="booking-form__trust-indicators">
-              <div className="booking-form__trust-item">
-                <Gift size={18} />
-                <span>Бесплатно</span>
-              </div>
-              <div className="booking-form__trust-item">
-                <Clock size={18} />
-                <span>Ответим за 15 минут</span>
-              </div>
-              <div className="booking-form__trust-item">
-                <Shield size={18} />
-                <span>Без обязательств</span>
-              </div>
-            </div>
             {/* Прогресс-бар заполнения формы */}
             {formProgress > 0 && formProgress < 100 && (
               <div className="booking-form__progress-bar">
@@ -336,7 +318,7 @@ function BookingForm() {
                   <div className="booking-form__label-icon">
                     <Info size={18} />
                   </div>
-                  <span>Откуда узнали <span className="booking-form__required">*</span></span>
+                  <span>Укажите ваш сад/школу <span className="booking-form__required">*</span></span>
                 </label>
                 <input
                   type="text"
@@ -346,7 +328,7 @@ function BookingForm() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={`booking-form__input ${errors.source ? 'booking-form__input--error' : ''}`}
-                  placeholder="например: сад №1"
+                  placeholder="Например: Детский сад №1"
                   required
                 />
                 {errors.source && (

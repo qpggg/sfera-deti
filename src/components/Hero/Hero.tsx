@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
-import { ArrowRight, Clock, Zap, Star, Users } from 'lucide-react'
+import { ArrowRight, Clock, Zap, Star, Users, Activity, Palette, Brain } from 'lucide-react'
 import ModalForms from '../ModalForms/ModalForms'
 import './Hero.css'
 
@@ -91,6 +91,9 @@ function Hero() {
             <span>Центр дополнительного образования для детей 3–17 лет</span>
           </div>
           
+          <div className="hero__logo-mobile">
+            <img src="/logo.png" alt="СФЕРА" className="hero__logo-img" />
+          </div>
           <h1 className="hero__title">
             <span className="hero__title-line">
               <span className="hero__title-highlight">СФЕРА</span> — пространство
@@ -110,29 +113,107 @@ function Hero() {
               </p>
               <p className="hero__description-subtitle">
                 Каждое направление — проверенная методика развития личности, а не спорт ради спорта.
+                <br />
+                Вы выбираете, через какое направление это сделать
               </p>
-              <button 
-                className="hero__button hero__button--secondary hero__description-button"
-                onClick={() => {
-                  const element = document.querySelector('#directions')
-                  if (element) {
-                    const headerHeight = 70
-                    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-                    const offsetPosition = elementPosition - headerHeight
-                    window.scrollTo({
-                      top: offsetPosition,
-                      behavior: 'smooth'
-                    })
-                  }
-                }}
-              >
-                <span>Выберите, через какое направление это сделать</span>
-                <ArrowRight size={20} className="hero__description-button-icon" />
-                <div className="hero__description-button-shine"></div>
-                <div className="hero__description-button-glow"></div>
-              </button>
+              <div className="hero__buttons">
+                <button 
+                  className="hero__button hero__button--primary hero__button-booking"
+                  onClick={() => setModalType('booking')}
+                >
+                  <span>Записаться на пробное занятие</span>
+                  <ArrowRight size={20} className="hero__button-icon" />
+                </button>
+                <button 
+                  className="hero__button hero__button--secondary hero__button-direction"
+                  onClick={() => {
+                    const element = document.querySelector('#directions')
+                    if (element) {
+                      const headerHeight = 70
+                      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+                      const offsetPosition = elementPosition - headerHeight
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      })
+                    }
+                  }}
+                >
+                  <span>Подобрать направление</span>
+                </button>
+              </div>
             </div>
             <div className="hero__description-accent"></div>
+          </div>
+          
+          {/* Блок "Развитие в трёх направлениях" - только на мобильных */}
+          <div className="hero__directions-block">
+            <h2 className="hero__directions-title">Развитие в трех направлениях</h2>
+            <div className="hero__directions-list">
+              <div className="hero__direction-item">
+                <div className="hero__direction-image-wrapper">
+                  <img 
+                    src="/16.jpg" 
+                    alt="Движение"
+                    className="hero__direction-image"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.style.display = 'none'
+                      const placeholder = target.parentElement?.querySelector('.hero__direction-image-placeholder')
+                      if (placeholder) {
+                        (placeholder as HTMLElement).style.display = 'flex'
+                      }
+                    }}
+                  />
+                  <div className="hero__direction-image-placeholder" style={{ display: 'none' }}>
+                    <Activity size={32} />
+                  </div>
+                </div>
+                <div className="hero__direction-badge">Движение</div>
+              </div>
+              <div className="hero__direction-item">
+                <div className="hero__direction-image-wrapper">
+                  <img 
+                    src="/17.jpg" 
+                    alt="Творчество"
+                    className="hero__direction-image"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.style.display = 'none'
+                      const placeholder = target.parentElement?.querySelector('.hero__direction-image-placeholder')
+                      if (placeholder) {
+                        (placeholder as HTMLElement).style.display = 'flex'
+                      }
+                    }}
+                  />
+                  <div className="hero__direction-image-placeholder" style={{ display: 'none' }}>
+                    <Palette size={32} />
+                  </div>
+                </div>
+                <div className="hero__direction-badge">Творчество</div>
+              </div>
+              <div className="hero__direction-item">
+                <div className="hero__direction-image-wrapper">
+                  <img 
+                    src="/18.jpg" 
+                    alt="Мышление"
+                    className="hero__direction-image"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.style.display = 'none'
+                      const placeholder = target.parentElement?.querySelector('.hero__direction-image-placeholder')
+                      if (placeholder) {
+                        (placeholder as HTMLElement).style.display = 'flex'
+                      }
+                    }}
+                  />
+                  <div className="hero__direction-image-placeholder" style={{ display: 'none' }}>
+                    <Brain size={32} />
+                  </div>
+                </div>
+                <div className="hero__direction-badge">Мышление</div>
+              </div>
+            </div>
           </div>
           
           <div className="hero__trust">
@@ -146,7 +227,7 @@ function Hero() {
             </div>
             <div className="hero__trust-item">
               <Users size={16} />
-              <span>Малые группы до 8 человек</span>
+              <span>Малочисленные группы</span>
             </div>
           </div>
         </div>

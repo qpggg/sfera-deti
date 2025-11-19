@@ -388,3 +388,4 @@ sudo systemctl reload nginx
 - **https://sfera-deti.ru** (с SSL)
 - **http://sfera-deti.ru** (автоматически редиректит на HTTPS)
 
+

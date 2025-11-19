@@ -116,9 +116,6 @@ function Gallery({ images, title = 'Галерея' }: GalleryProps) {
           {title && (
             <div className="gallery__header">
               <h2 className="gallery__title">{title}</h2>
-              <p className="gallery__subtitle">
-                Посмотрите, как заботливо мы организовали пространство для развития детей
-              </p>
             </div>
           )}
           
@@ -152,12 +149,8 @@ function Gallery({ images, title = 'Галерея' }: GalleryProps) {
                     />
                   )}
                   <div className="gallery__item-overlay">
-                    <div className="gallery__zoom">🔍</div>
                   </div>
                 </div>
-                {image.category && (
-                  <div className="gallery__category">{image.category}</div>
-                )}
               </div>
             ))}
           </div>

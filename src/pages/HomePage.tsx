@@ -22,7 +22,13 @@ function HomePage() {
     { id: 3, src: '/3.png', alt: 'Творческая мастерская', category: 'Творчество' },
     { id: 4, src: '/4.png', alt: 'Игровая зона', category: 'Пространство' },
     { id: 5, src: '/5.png', alt: 'Групповое занятие', category: 'Занятия' },
-    { id: 6, src: '/6.png', alt: 'Рабочее место', category: 'Пространство' }
+    { id: 6, src: '/6.png', alt: 'Рабочее место', category: 'Пространство' },
+    { id: 24, src: '/24.jpg', alt: 'Фото 24', category: 'Галерея' },
+    { id: 25, src: '/25.jpg', alt: 'Фото 25', category: 'Галерея' },
+    { id: 26, src: '/26.jpg', alt: 'Фото 26', category: 'Галерея' },
+    { id: 27, src: '/27.jpg', alt: 'Фото 27', category: 'Галерея' },
+    { id: 28, src: '/28.jpg', alt: 'Фото 28', category: 'Галерея' },
+    { id: 29, src: '/29.jpg', alt: 'Фото 29', category: 'Галерея' }
   ]
 
   return (
@@ -37,9 +43,9 @@ function HomePage() {
       <div id="directions">
         <ChooseDirection />
       </div>
-      <div id="branches">
+      {/* <div id="branches">
         <Branches />
-      </div>
+      </div> */}
       <div id="how-we-work">
         <HowWeWork />
       </div>

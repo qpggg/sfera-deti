@@ -91,6 +91,8 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: var(--spacing-xl) var(--spacing-md);
+  display: flex;
+  flex-direction: column;
 }
 
 .approach-methodology__header {
@@ -118,6 +120,11 @@
   animation: fadeInUp 0.8s ease 0.2s forwards;
   opacity: 0;
   transform: translateY(20px);
+}
+
+/* Скрыть мобильную версию intro на десктопе */
+.approach-methodology__intro--mobile {
+  display: none;
 }
 
 .approach-methodology__intro-text {
@@ -235,7 +242,7 @@
   color: var(--color-text-light);
   line-height: 1.7;
   margin: 0;
-  font-style: italic;
+  font-style: normal;
   opacity: 0.9;
   text-align: center;
   margin-top: var(--spacing-xs);
@@ -267,6 +274,68 @@
   animation: fadeInUp 0.8s ease 0.4s forwards;
   opacity: 0;
   transform: translateY(20px);
+}
+
+/* Унифицируем размеры всех трех блоков на десктопе */
+@media (min-width: 769px) {
+  .approach-methodology__directions-info-block {
+    max-width: 950px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-radius: 24px;
+    margin: 0 auto var(--spacing-lg);
+  }
+
+  .approach-methodology__approach-block {
+    max-width: 950px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-radius: 24px;
+    margin: 0 auto var(--spacing-lg);
+  }
+}
+
+/* Блок "Удобство для родителя" - скрыт на десктопе по умолчанию */
+.approach-methodology__convenience {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .approach-methodology__convenience {
+    display: block;
+    background: linear-gradient(135deg, rgba(0, 151, 184, 0.08) 0%, rgba(0, 151, 184, 0.03) 100%);
+    border-radius: 24px;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    margin: 0 auto var(--spacing-lg);
+    max-width: 950px;
+    border: 2px solid rgba(0, 151, 184, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 151, 184, 0.08);
+    animation: fadeInUp 0.8s ease 0.5s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    text-align: center;
+  }
+
+  .approach-methodology__convenience-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    color: var(--color-graphite);
+    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-heading);
+  }
+
+  .approach-methodology__convenience-text {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+  }
+
+  .approach-methodology__convenience-description {
+    font-size: clamp(0.9375rem, 1.5vw, 1rem);
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin: 0;
+  }
 }
 
 .approach-methodology__approach-label {
@@ -330,6 +399,13 @@
   animation: fadeInUp 0.8s ease 0.6s forwards;
   opacity: 0;
   transform: translateY(20px);
+}
+
+/* Скрыть блок на мобильных (он показывается в Hero) */
+@media (max-width: 768px) {
+  .approach-methodology__directions-block {
+    display: none;
+  }
 }
 
 .approach-methodology__directions-label {
@@ -615,10 +691,18 @@
   .approach-methodology__features {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-sm);
+    justify-items: center;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--spacing-sm);
+    order: 2 !important;
   }
   
   /* Уменьшить размер карточек на мобильных */
   .approach-methodology__feature {
+    max-width: 100%;
+    width: 100%;
     padding: var(--spacing-sm);
     border-radius: 16px;
   }
@@ -713,14 +797,83 @@
     left: var(--spacing-xs);
   }
 
-  .approach-methodology__conclusion {
-    flex-direction: column;
-    text-align: center;
-    padding: var(--spacing-md);
+  /* Уменьшить нижний отступ секции на мобильных, но увеличить верхний */
+  .approach-methodology {
+    padding-bottom: 0 !important;
+    padding-top: var(--spacing-xl) !important;
   }
-
-  .approach-methodology__conclusion-icon {
-    align-self: center;
+  
+  /* Скрыть блоки на мобильных */
+  .approach-methodology__directions-info-block {
+    display: none !important;
+  }
+  
+  .approach-methodology__conclusion {
+    display: none !important;
+  }
+  
+  /* Скрыть features на мобильных */
+  .approach-methodology__features {
+    display: none !important;
+  }
+  
+  /* Установить порядок для всех элементов на мобильных */
+  .approach-methodology__header {
+    order: 0;
+  }
+  
+  /* Блок "НАШ ПОДХОД" перед кнопкой */
+  .approach-methodology__approach-block {
+    order: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .approach-methodology__directions-block {
+    order: 0;
+  }
+  
+  .approach-methodology__conclusion {
+    order: 0;
+  }
+  
+  /* Кнопка после направлений */
+  .approach-methodology__cta {
+    order: 3 !important;
+  }
+  
+  /* Блок "Удобство для родителя" - после кнопки */
+  .approach-methodology__convenience {
+    display: block !important;
+    order: 4 !important;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, rgba(0, 151, 184, 0.08) 0%, rgba(0, 151, 184, 0.03) 100%);
+    border-radius: 24px;
+    padding: var(--spacing-lg) var(--spacing-md);
+    border: 2px solid rgba(0, 151, 184, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 151, 184, 0.08);
+    text-align: center;
+  }
+  
+  /* Скрыть intro в header на мобильных */
+  .approach-methodology__intro--desktop {
+    display: none;
+  }
+  
+  /* Показать мобильную версию intro после convenience */
+  .approach-methodology__intro--mobile {
+    display: block !important;
+    order: 5;
+    margin-top: var(--spacing-md);
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  /* Убрать нижний отступ у content на мобильных */
+  .approach-methodology__content {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
   }
 }
 

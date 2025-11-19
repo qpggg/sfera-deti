@@ -159,3 +159,4 @@ cd /root/sfera-deti
 ./deploy.sh
 ```
 
+

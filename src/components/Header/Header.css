@@ -31,19 +31,22 @@
   flex-shrink: 0;
   z-index: 3;
   position: relative;
-  margin-left: -3rem;
+  margin-left: -5rem;
 }
 
 .header__logo-img {
-  height: 40px;
+  height: 55px;
   width: auto;
   object-fit: contain;
   transition: var(--transition);
+  transform: scaleX(1.1);
+  transform-origin: left center;
 }
 
 .header__logo:hover .header__logo-img {
   opacity: 0.8;
-  transform: scale(1.05);
+  transform: scaleX(1.1) scaleY(1.05);
+  transform-origin: left center;
 }
 
 .header__nav {
@@ -250,12 +253,15 @@
 @media (max-width: 768px) {
   /* Исправить логотип на мобильных */
   .header__logo {
-    margin-left: 0;
+    margin-left: -1rem;
     padding-left: var(--spacing-sm);
   }
   
   .header__logo-img {
-    height: 32px;
+    height: 45px;
+    width: auto;
+    transform: scaleX(1.1);
+    transform-origin: left center;
   }
   
   /* Скрыть навигацию на мобильных (показывается только через бургер) */

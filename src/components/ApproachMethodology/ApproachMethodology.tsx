@@ -95,7 +95,7 @@ function ApproachMethodology() {
               Единая методика развития личности, а не просто набор кружков
             </h2>
             
-            <div className="approach-methodology__intro">
+            <div className="approach-methodology__intro approach-methodology__intro--desktop">
               <div className="approach-methodology__intro-text">
                 <span className="approach-methodology__highlight">В СФЕРЕ</span> ребёнок не "ходит на секцию" — 
                 он проходит <span className="approach-methodology__highlight">путь развития личности</span>.
@@ -131,6 +131,7 @@ function ApproachMethodology() {
               </div>
             </div>
 
+            {/* Блок "Развитие в трёх направлениях" - только на десктопе */}
             <div className="approach-methodology__directions-block">
               <div className="approach-methodology__directions-label">
                 Развитие в трёх направлениях:
@@ -202,6 +203,38 @@ function ApproachMethodology() {
               </div>
             </div>
 
+            <div className="approach-methodology__cta">
+              <button 
+                className="approach-methodology__button"
+                onClick={() => {
+                  const element = document.querySelector('#directions')
+                  if (element) {
+                    const headerHeight = 70
+                    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+                    const offsetPosition = elementPosition - headerHeight
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    })
+                  }
+                }}
+              >
+                Посмотреть, какие направления подойдут вашему ребёнку
+                <ArrowRight size={20} />
+              </button>
+            </div>
+
+            {/* Блок "Удобство для родителя" - только на десктопе */}
+            <div className="approach-methodology__convenience">
+              <h3 className="approach-methodology__convenience-title">Удобство для родителя</h3>
+              <p className="approach-methodology__convenience-text">
+                Занятия проходят прямо в вашей школе / детском саду
+              </p>
+              <p className="approach-methodology__convenience-description">
+                Мы сами забираем детей из групп и классов, проводим занятия на территории учреждения и возвращаем обратно. Вам не нужно никуда ездить — всё происходит в привычной и безопасной среде ребёнка.
+              </p>
+            </div>
+
             <div className="approach-methodology__conclusion">
               <div className="approach-methodology__conclusion-icon">
                 <Zap size={20} />
@@ -212,47 +245,34 @@ function ApproachMethodology() {
                 а не отдельные, разрозненные кружки.
               </p>
             </div>
-          </div>
-
-          <div className="approach-methodology__features">
-            {features.map((feature, index) => (
-              <div 
-                key={index}
-                className="approach-methodology__feature"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="approach-methodology__feature-icon">
-                  {feature.icon}
-                </div>
-                <h3 className="approach-methodology__feature-title">
-                  {feature.title}
-                </h3>
-                <p className="approach-methodology__feature-description">
-                  {feature.description}
-                </p>
+            
+            {/* Дубликат intro для мобильных - показывается после convenience */}
+            <div className="approach-methodology__intro approach-methodology__intro--mobile">
+              <div className="approach-methodology__intro-text">
+                <span className="approach-methodology__highlight">В СФЕРЕ</span> ребёнок не "ходит на секцию" — 
+                он проходит <span className="approach-methodology__highlight">путь развития личности</span>.
               </div>
-            ))}
-          </div>
+            </div>
 
-          <div className="approach-methodology__cta">
-            <button 
-              className="approach-methodology__button"
-              onClick={() => {
-                const element = document.querySelector('#directions')
-                if (element) {
-                  const headerHeight = 70
-                  const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-                  const offsetPosition = elementPosition - headerHeight
-                  window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                  })
-                }
-              }}
-            >
-              Посмотреть, какие направления подойдут вашему ребёнку
-              <ArrowRight size={20} />
-            </button>
+            <div className="approach-methodology__features">
+              {features.map((feature, index) => (
+                <div 
+                  key={index}
+                  className="approach-methodology__feature"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="approach-methodology__feature-icon">
+                    {feature.icon}
+                  </div>
+                  <h3 className="approach-methodology__feature-title">
+                    {feature.title}
+                  </h3>
+                  <p className="approach-methodology__feature-description">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

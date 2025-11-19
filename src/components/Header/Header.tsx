@@ -32,7 +32,6 @@ function Header() {
       { id: 'approach', anchor: '#approach' },
       { id: 'booking-form', anchor: '#booking-form' },
       { id: 'directions', anchor: '#directions' },
-      { id: 'branches', anchor: '#branches' },
       { id: 'how-we-work', anchor: '#how-we-work' },
       { id: 'trust', anchor: '#trust' },
       { id: 'team', anchor: '#team' },
@@ -116,7 +115,6 @@ function Header() {
     { path: '/', label: 'Главная', anchor: null },
     { path: '/', label: 'О подходе', anchor: '#approach' },
     { path: '/', label: 'Направления', anchor: '#directions' },
-    { path: '/', label: 'Филиалы', anchor: '#branches' },
     { path: '/', label: 'Как мы работаем', anchor: '#how-we-work' },
     { path: '/', label: 'Команда', anchor: '#team' },
     { path: '/', label: 'Галерея', anchor: '#gallery' }

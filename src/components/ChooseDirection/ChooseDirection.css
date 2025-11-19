@@ -98,6 +98,34 @@
   margin-bottom: var(--spacing-xl);
 }
 
+.choose-direction__title-main {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  color: var(--color-graphite);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.1;
+  background: linear-gradient(135deg, #006D8F 0%, #0097B8 30%, #00A3C8 60%, #00B8D4 85%, #00B8D4 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+  filter: drop-shadow(0 2px 6px rgba(0, 151, 184, 0.3));
+  animation: gradientShift 5s ease infinite, subtleFloat 6s ease-in-out 1s infinite;
+  text-shadow: 0 4px 20px rgba(0, 151, 184, 0.08);
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
 .choose-direction__title {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
@@ -215,9 +243,8 @@
   box-shadow: 0 12px 45px rgba(0, 151, 184, 0.2);
 }
 
-.choose-direction__card--active {
-  border-color: var(--card-color, rgba(0, 151, 184, 0.5));
-  box-shadow: 0 12px 45px rgba(0, 151, 184, 0.25);
+.choose-direction__card:active {
+  transform: translateY(-4px);
 }
 
 .choose-direction__card-header {
@@ -340,6 +367,49 @@
   box-shadow: 0 4px 15px rgba(0, 151, 184, 0.3);
 }
 
+/* Контейнер для двух кнопок при раскрытом аккордеоне на мобильных */
+.choose-direction__card-buttons-expanded {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: calc(100% - var(--spacing-lg) * 2);
+  margin: var(--spacing-md) var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
+}
+
+/* Голубая кнопка "Записаться" */
+.choose-direction__card-button--primary {
+  width: 100%;
+  background: var(--card-color, var(--color-accent)) !important;
+  color: var(--color-white) !important;
+  border: none !important;
+  margin: 0;
+  box-shadow: 0 4px 15px rgba(0, 151, 184, 0.3);
+}
+
+.choose-direction__card-button--primary:hover {
+  background: var(--card-color, var(--color-accent)) !important;
+  color: var(--color-white) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 151, 184, 0.4);
+}
+
+/* Светлая кнопка "Свернуть" */
+.choose-direction__card-button--secondary {
+  width: 100%;
+  background: transparent !important;
+  color: var(--card-color, var(--color-accent)) !important;
+  border: 2px solid var(--card-color, rgba(0, 151, 184, 0.3)) !important;
+  margin: 0;
+  box-shadow: 0 4px 15px rgba(0, 151, 184, 0.1);
+}
+
+.choose-direction__card-button--secondary:hover {
+  background: var(--card-color, var(--color-accent)) !important;
+  color: var(--color-white) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 151, 184, 0.3);
+}
+
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -392,7 +462,23 @@
   }
   
   .choose-direction {
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-xl) 0 var(--spacing-lg) 0 !important;
+  }
+  
+  /* Увеличить отступ от надписи "СФЕРА" до верха на мобильных */
+  .choose-direction__title-main {
+    margin-bottom: var(--spacing-lg) !important;
+    margin-top: 0 !important;
+  }
+  
+  .choose-direction__header {
+    margin-bottom: var(--spacing-sm) !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  .choose-direction__title {
+    margin-top: 0 !important;
   }
   
   /* Уменьшить карточки на мобильных */
@@ -430,6 +516,23 @@
     margin-left: var(--spacing-md);
     margin-right: var(--spacing-md);
     margin-bottom: var(--spacing-md);
+  }
+  
+  .choose-direction__card-buttons-expanded {
+    width: calc(100% - var(--spacing-md) * 2);
+    margin-left: var(--spacing-md);
+    margin-right: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    gap: var(--spacing-xs);
+    flex-direction: column;
+  }
+  
+  .choose-direction__card-button--primary,
+  .choose-direction__card-button--secondary {
+    width: 100%;
+    margin: 0;
+    font-size: 0.875rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
   }
   
   .choose-direction__card-title {
@@ -486,7 +589,119 @@
   }
   
   .choose-direction__content {
-    padding: var(--spacing-lg) var(--spacing-sm);
+    padding: 0 var(--spacing-sm) !important;
+    padding-bottom: var(--spacing-lg) !important;
+    padding-top: 0 !important;
+  }
+  
+  /* Блоки для мобильных - показываем только на мобильных */
+  .choose-direction__mobile-extra {
+    display: block;
+    margin-top: var(--spacing-xl);
+  }
+  
+  .choose-direction__convenience {
+    background: linear-gradient(135deg, rgba(0, 151, 184, 0.08) 0%, rgba(0, 151, 184, 0.03) 100%);
+    border-radius: 24px;
+    padding: var(--spacing-md) var(--spacing-sm);
+    border: 2px solid rgba(0, 151, 184, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 151, 184, 0.08);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  /* Скрыть заголовок и текст "Удобство для родителя" на мобильных */
+  .choose-direction__convenience-title {
+    display: none !important;
+  }
+  
+  .choose-direction__convenience-text {
+    display: none !important;
+  }
+  
+  /* Скрыть описание на мобильных */
+  .choose-direction__convenience-description {
+    display: none !important;
+  }
+  
+  /* Стили для convenience-extra как у feature-title */
+  .choose-direction__convenience-extra {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-graphite);
+    line-height: 1.3;
+    margin-bottom: var(--spacing-xs);
+    font-family: var(--font-heading);
+  }
+  
+  .choose-direction__features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xs);
+    justify-items: stretch;
+    align-items: stretch;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--spacing-xs);
+  }
+  
+  .choose-direction__feature {
+    background: var(--color-white);
+    border-radius: 16px;
+    padding: var(--spacing-sm);
+    border: 2px solid rgba(0, 151, 184, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 151, 184, 0.08);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    min-height: 140px;
+    box-sizing: border-box;
+  }
+  
+  .choose-direction__feature-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #0097B8 0%, #00A3C8 50%, #006D8F 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    margin: 0 auto var(--spacing-xs);
+    box-shadow: 0 4px 15px rgba(0, 151, 184, 0.3);
+    flex-shrink: 0;
+  }
+  
+  .choose-direction__feature-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-graphite);
+    margin-bottom: var(--spacing-xs);
+    font-family: var(--font-heading);
+    line-height: 1.3;
+  }
+  
+  .choose-direction__feature-description {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    line-height: 1.4;
+    margin: 0;
+    flex-grow: 1;
+  }
+}
+
+/* Скрыть блоки на десктопе */
+@media (min-width: 769px) {
+  .choose-direction__mobile-extra {
+    display: none;
   }
 }
 

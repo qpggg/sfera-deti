@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useMemo } from 'react'
-import { Activity, Shield, Music, Brain, Palette, ArrowRight, BookOpen, MessageSquare, Globe, Target } from 'lucide-react'
+import { Activity, Shield, Music, Brain, Palette, ArrowRight, BookOpen, MessageSquare, Globe, Target, Users, Heart, Sparkles } from 'lucide-react'
 import './ChooseDirection.css'
 
 interface Direction {
@@ -14,7 +14,6 @@ interface Direction {
 
 function ChooseDirection() {
   const [isVisible, setIsVisible] = useState(false)
-  const [selectedDirection, setSelectedDirection] = useState<string | null>(null)
   const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set())
   const [isMobile, setIsMobile] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
@@ -174,6 +173,7 @@ function ChooseDirection() {
       <div className="container">
         <div className="choose-direction__content">
           <div className="choose-direction__header">
+            <h1 className="choose-direction__title-main">СФЕРА</h1>
             <h2 className="choose-direction__title">
               Выберите направление под задачи вашего ребёнка
             </h2>
@@ -187,12 +187,23 @@ function ChooseDirection() {
             {directions.map((direction, index) => (
               <div
                 key={direction.id}
-                className={`choose-direction__card ${selectedDirection === direction.id ? 'choose-direction__card--active' : ''}`}
+                className="choose-direction__card"
                 style={{ 
                   animationDelay: `${index * 0.1}s`,
                   '--card-color': direction.color
                 } as React.CSSProperties}
-                onClick={() => setSelectedDirection(selectedDirection === direction.id ? null : direction.id)}
+                onClick={() => {
+                  const element = document.querySelector('#booking-form')
+                  if (element) {
+                    const headerHeight = 70
+                    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+                    const offsetPosition = elementPosition - headerHeight
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    })
+                  }
+                }}
               >
                 {/* Фото сверху карточки */}
                 <div className="choose-direction__card-image-wrapper">
@@ -256,39 +267,74 @@ function ChooseDirection() {
                   </div>
                 </div>
 
-                <button 
-                  className="choose-direction__card-button"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    // На мобильных открываем аккордеон, на десктопе скроллим к форме
-                    if (isMobile) {
-                      const newExpanded = new Set(expandedCards)
-                      if (newExpanded.has(direction.id)) {
+                {isMobile && expandedCards.has(direction.id) ? (
+                  <div className="choose-direction__card-buttons-expanded">
+                    <button 
+                      className="choose-direction__card-button choose-direction__card-button--primary"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        const element = document.querySelector('#booking-form')
+                        if (element) {
+                          const headerHeight = 70
+                          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+                          const offsetPosition = elementPosition - headerHeight
+                          window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                          })
+                        }
+                      }}
+                    >
+                      Записаться
+                      <ArrowRight size={18} />
+                    </button>
+                    <button 
+                      className="choose-direction__card-button choose-direction__card-button--secondary"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        const newExpanded = new Set(expandedCards)
                         newExpanded.delete(direction.id)
-                      } else {
+                        setExpandedCards(newExpanded)
+                      }}
+                    >
+                      Свернуть
+                      <ArrowRight 
+                        size={18} 
+                        className="choose-direction__card-button-icon choose-direction__card-button-icon--rotated"
+                      />
+                    </button>
+                  </div>
+                ) : (
+                  <button 
+                    className="choose-direction__card-button"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      // На мобильных открываем аккордеон, на десктопе скроллим к форме
+                      if (isMobile) {
+                        const newExpanded = new Set(expandedCards)
                         newExpanded.add(direction.id)
+                        setExpandedCards(newExpanded)
+                      } else {
+                        const element = document.querySelector('#booking-form')
+                        if (element) {
+                          const headerHeight = 70
+                          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+                          const offsetPosition = elementPosition - headerHeight
+                          window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                          })
+                        }
                       }
-                      setExpandedCards(newExpanded)
-                    } else {
-                      const element = document.querySelector('#booking-form')
-                      if (element) {
-                        const headerHeight = 70
-                        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-                        const offsetPosition = elementPosition - headerHeight
-                        window.scrollTo({
-                          top: offsetPosition,
-                          behavior: 'smooth'
-                        })
-                      }
-                    }
-                  }}
-                >
-                  {isMobile && expandedCards.has(direction.id) ? 'Свернуть' : 'Подробнее о направлении'}
-                  <ArrowRight 
-                    size={18} 
-                    className={`choose-direction__card-button-icon ${isMobile && expandedCards.has(direction.id) ? 'choose-direction__card-button-icon--rotated' : ''}`}
-                  />
-                </button>
+                    }}
+                  >
+                    {isMobile ? 'Узнать подробнее' : 'Получить консультацию'}
+                    <ArrowRight 
+                      size={18} 
+                      className="choose-direction__card-button-icon"
+                    />
+                  </button>
+                )}
               </div>
             ))}
           </div>
@@ -312,6 +358,72 @@ function ChooseDirection() {
               Записаться на пробное занятие
               <ArrowRight size={20} />
             </button>
+          </div>
+
+          {/* Блок "Удобство для родителя" и features - только на мобильных */}
+          <div className="choose-direction__mobile-extra">
+            <div className="choose-direction__convenience">
+              <h3 className="choose-direction__convenience-title">Удобство для родителя</h3>
+              <p className="choose-direction__convenience-text">
+                Занятия проходят прямо в вашей школе / детском саду
+              </p>
+              <p className="choose-direction__convenience-description">
+                Мы сами забираем детей из групп и классов, проводим занятия на территории учреждения и возвращаем обратно. Вам не нужно никуда ездить — всё происходит в привычной и безопасной среде ребёнка.
+              </p>
+              <p className="choose-direction__convenience-extra">
+                Мы развиваем личность через разные форматы - от гимнастики до шахмат.
+              </p>
+              <p className="choose-direction__convenience-extra">
+                Каждый продукт закрывает запросы родителей
+              </p>
+            </div>
+
+            <div className="choose-direction__features">
+              <div className="choose-direction__feature" style={{ animationDelay: '0s' }}>
+                <div className="choose-direction__feature-icon">
+                  <Users size={28} />
+                </div>
+                <h3 className="choose-direction__feature-title">
+                  Мини-группы до 14 детей
+                </h3>
+                <p className="choose-direction__feature-description">
+                  Максимальное внимание каждому ребёнку
+                </p>
+              </div>
+              <div className="choose-direction__feature" style={{ animationDelay: '0.1s' }}>
+                <div className="choose-direction__feature-icon">
+                  <Brain size={28} />
+                </div>
+                <h3 className="choose-direction__feature-title">
+                  Педагоги с профильным образованием
+                </h3>
+                <p className="choose-direction__feature-description">
+                  Опыт работы с детьми дошкольного и школьного возраста
+                </p>
+              </div>
+              <div className="choose-direction__feature" style={{ animationDelay: '0.2s' }}>
+                <div className="choose-direction__feature-icon">
+                  <Heart size={28} />
+                </div>
+                <h3 className="choose-direction__feature-title">
+                  Куратор-психолог
+                </h3>
+                <p className="choose-direction__feature-description">
+                  Контроль за психоэмоциональным состоянием
+                </p>
+              </div>
+              <div className="choose-direction__feature" style={{ animationDelay: '0.3s' }}>
+                <div className="choose-direction__feature-icon">
+                  <Sparkles size={28} />
+                </div>
+                <h3 className="choose-direction__feature-title">
+                  Занятия в школе или саду
+                </h3>
+                <p className="choose-direction__feature-description">
+                  Не нужно никуда водить — мы приходим к вам
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -36,3 +36,4 @@ cp /root/sfera-deti/dist/23.jpg /root/sfera-deti/dist/public/23.jpg
 
 Изменить путь в CSS на относительный, но это может не сработать правильно.
 
+

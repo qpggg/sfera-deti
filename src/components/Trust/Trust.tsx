@@ -55,10 +55,9 @@ function Trust() {
     },
     {
       icon: <Users size={28} />,
-      value: '350-450',
-      label: 'активных детей в месяц',
-      description: 'Работа педагогов под контролем психолога.',
-      numericValue: 450
+      value: 'Подход',
+      label: 'Персональный к каждому',
+      description: 'Работа педагогов под контролем психолога.'
     },
     {
       icon: <Shield size={28} />,
@@ -175,9 +174,7 @@ function Trust() {
                   <div className="trust__card-content">
                     <div className="trust__card-value-wrapper">
                       <div className="trust__card-value">
-                        {item.numericValue !== undefined && index === 2 ? (
-                          `350-${displayValue}`
-                        ) : item.numericValue !== undefined && index === 0 ? (
+                        {item.numericValue !== undefined && index === 0 ? (
                           `${displayValue} лет`
                         ) : item.numericValue !== undefined ? (
                           displayValue

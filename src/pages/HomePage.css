@@ -3,3 +3,52 @@
   padding-top: 70px;
 }
 
+@media (max-width: 768px) {
+  .home-page {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Hero - первый */
+  .home-page > :first-child {
+    order: 0;
+  }
+  
+  /* ApproachMethodology - второй */
+  #approach {
+    order: 1;
+  }
+  
+  /* ChooseDirection - третий (после ApproachMethodology) */
+  #directions {
+    order: 2;
+  }
+  
+  /* BookingForm - четвертый */
+  #booking-form {
+    order: 3;
+  }
+  
+  /* Остальные секции в естественном порядке */
+  #how-we-work {
+    order: 4;
+  }
+  
+  #trust {
+    order: 5;
+  }
+  
+  #team {
+    order: 6;
+  }
+  
+  #gallery {
+    order: 7;
+  }
+  
+  /* Footer - последний */
+  .home-page > footer {
+    order: 8;
+  }
+}
+

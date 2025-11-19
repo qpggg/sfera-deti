@@ -175,6 +175,13 @@
   transform: translateY(20px);
 }
 
+/* Скрыть блок на десктопе (он перенесен в ApproachMethodology) */
+@media (min-width: 769px) {
+  .branches__convenience {
+    display: none;
+  }
+}
+
 .branches__convenience-title {
   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   font-weight: 600;

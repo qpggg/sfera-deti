@@ -123,7 +123,7 @@
 
 .team-member-card__quote p {
   font-size: 1.125rem;
-  font-style: italic;
+  font-style: normal;
   color: var(--color-text);
   line-height: 1.7;
   margin: 0;
