@@ -5,7 +5,15 @@
 ```bash
 # 1. Установка зависимостей (если еще не установлены)
 sudo apt update
-sudo apt install -y git nodejs npm nginx certbot python3-certbot-nginx
+sudo apt install -y git curl nginx certbot python3-certbot-nginx
+
+# 1.1. Установка Node.js 20 LTS (Vite 7 требует Node.js 18.5+)
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Проверка версий
+node --version  # Должно быть v20.x.x или выше
+npm --version
 
 # 2. Создание директории
 sudo mkdir -p /var/www/sfera-deti
@@ -17,6 +25,8 @@ git clone https://github.com/qpggg/sfera-deti.git .
 
 # 4. Установка зависимостей и сборка
 npm install
+
+# Если возникает ошибка "crypto.hash is not a function", обновите Node.js (см. BUILD_FIX.md)
 npm run build
 
 # 5. Настройка nginx
