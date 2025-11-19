@@ -36,6 +36,12 @@ echo "🔧 Исправляем путь для изображений..."
 mkdir -p dist/public
 cp dist/23.jpg dist/public/23.jpg 2>/dev/null || true
 
+# Перезапускаем PM2 (если используется)
+if command -v pm2 &> /dev/null; then
+    echo "🔄 Перезапускаем PM2..."
+    pm2 restart sfera-deti 2>/dev/null || echo "PM2 не запущен, пропускаем"
+fi
+
 # Перезапускаем nginx
 echo "🔄 Перезапускаем nginx..."
 sudo systemctl reload nginx
