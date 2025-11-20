@@ -43,6 +43,10 @@
   transform-origin: left center;
 }
 
+.header__logo-text {
+  display: none;
+}
+
 .header__logo:hover .header__logo-img {
   opacity: 0.8;
   transform: scaleX(1.1) scaleY(1.05);
@@ -257,11 +261,19 @@
     padding-left: var(--spacing-sm);
   }
   
+  /* Скрыть изображение логотипа на мобильных */
   .header__logo-img {
-    height: 45px;
-    width: auto;
-    transform: scaleX(1.1);
-    transform-origin: left center;
+    display: none !important;
+  }
+  
+  /* Показать текстовую надпись на мобильных */
+  .header__logo-text {
+    display: block !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-graphite);
+    font-family: var(--font-heading);
+    letter-spacing: -0.5px;
   }
   
   /* Скрыть навигацию на мобильных (показывается только через бургер) */

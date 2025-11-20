@@ -251,28 +251,28 @@ function ApproachMethodology() {
               <div className="approach-methodology__intro-text">
                 <span className="approach-methodology__highlight">В СФЕРЕ</span> ребёнок не "ходит на секцию" — 
                 он проходит <span className="approach-methodology__highlight">путь развития личности</span>.
-              </div>
             </div>
+          </div>
 
-            <div className="approach-methodology__features">
-              {features.map((feature, index) => (
-                <div 
-                  key={index}
-                  className="approach-methodology__feature"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="approach-methodology__feature-icon">
-                    {feature.icon}
-                  </div>
-                  <h3 className="approach-methodology__feature-title">
-                    {feature.title}
-                  </h3>
-                  <p className="approach-methodology__feature-description">
-                    {feature.description}
-                  </p>
+          <div className="approach-methodology__features">
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className="approach-methodology__feature"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="approach-methodology__feature-icon">
+                  {feature.icon}
                 </div>
-              ))}
-            </div>
+                <h3 className="approach-methodology__feature-title">
+                  {feature.title}
+                </h3>
+                <p className="approach-methodology__feature-description">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
           </div>
         </div>
       </div>

@@ -179,6 +179,7 @@ function Header() {
               }}
             >
               <img src="/logo.png" alt="СФЕРА" className="header__logo-img" />
+              <span className="header__logo-text">СФЕРА</span>
             </Link>
             
             <nav className={`header__nav ${isMenuOpen ? 'header__nav--open' : ''}`}>

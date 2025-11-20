@@ -305,35 +305,35 @@ function ChooseDirection() {
                     </button>
                   </div>
                 ) : (
-                  <button 
-                    className="choose-direction__card-button"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      // На мобильных открываем аккордеон, на десктопе скроллим к форме
-                      if (isMobile) {
-                        const newExpanded = new Set(expandedCards)
+                <button 
+                  className="choose-direction__card-button"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    // На мобильных открываем аккордеон, на десктопе скроллим к форме
+                    if (isMobile) {
+                      const newExpanded = new Set(expandedCards)
                         newExpanded.add(direction.id)
-                        setExpandedCards(newExpanded)
-                      } else {
-                        const element = document.querySelector('#booking-form')
-                        if (element) {
-                          const headerHeight = 70
-                          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-                          const offsetPosition = elementPosition - headerHeight
-                          window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                          })
-                        }
+                      setExpandedCards(newExpanded)
+                    } else {
+                      const element = document.querySelector('#booking-form')
+                      if (element) {
+                        const headerHeight = 70
+                        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+                        const offsetPosition = elementPosition - headerHeight
+                        window.scrollTo({
+                          top: offsetPosition,
+                          behavior: 'smooth'
+                        })
                       }
-                    }}
-                  >
+                    }
+                  }}
+                >
                     {isMobile ? 'Узнать подробнее' : 'Получить консультацию'}
-                    <ArrowRight 
-                      size={18} 
+                  <ArrowRight 
+                    size={18} 
                       className="choose-direction__card-button-icon"
-                    />
-                  </button>
+                  />
+                </button>
                 )}
               </div>
             ))}

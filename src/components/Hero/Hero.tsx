@@ -92,7 +92,7 @@ function Hero() {
           </div>
           
           <div className="hero__logo-mobile">
-            <img src="/logo.png" alt="СФЕРА" className="hero__logo-img" />
+            <img src="/logo_cropped.png" alt="СФЕРА" className="hero__logo-img" />
           </div>
           <h1 className="hero__title">
             <span className="hero__title-line">
@@ -124,23 +124,23 @@ function Hero() {
                   <span>Записаться на пробное занятие</span>
                   <ArrowRight size={20} className="hero__button-icon" />
                 </button>
-                <button 
+              <button 
                   className="hero__button hero__button--secondary hero__button-direction"
-                  onClick={() => {
-                    const element = document.querySelector('#directions')
-                    if (element) {
-                      const headerHeight = 70
-                      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-                      const offsetPosition = elementPosition - headerHeight
-                      window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                      })
-                    }
-                  }}
-                >
+                onClick={() => {
+                  const element = document.querySelector('#directions')
+                  if (element) {
+                    const headerHeight = 70
+                    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+                    const offsetPosition = elementPosition - headerHeight
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    })
+                  }
+                }}
+              >
                   <span>Подобрать направление</span>
-                </button>
+              </button>
               </div>
             </div>
             <div className="hero__description-accent"></div>

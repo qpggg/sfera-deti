@@ -730,7 +730,7 @@
   }
   
   .approach-methodology {
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-md) 0;
   }
 
   .approach-methodology__intro-text {
@@ -797,10 +797,10 @@
     left: var(--spacing-xs);
   }
 
-  /* Уменьшить нижний отступ секции на мобильных, но увеличить верхний */
+  /* Уменьшить нижний отступ секции на мобильных и верхний тоже */
   .approach-methodology {
     padding-bottom: 0 !important;
-    padding-top: var(--spacing-xl) !important;
+    padding-top: var(--spacing-md) !important;
   }
   
   /* Скрыть блоки на мобильных */
@@ -870,10 +870,22 @@
     padding-bottom: 0 !important;
   }
   
-  /* Убрать нижний отступ у content на мобильных */
+  /* Убрать нижний отступ у content на мобильных и уменьшить верхний */
   .approach-methodology__content {
+    padding-top: var(--spacing-sm) !important;
     padding-bottom: 0 !important;
     margin-bottom: 0 !important;
+  }
+  
+  /* Уменьшить отступ заголовка на мобильных */
+  .approach-methodology__header {
+    margin-top: 0 !important;
+    margin-bottom: var(--spacing-md) !important;
+  }
+  
+  .approach-methodology__title {
+    margin-top: 0 !important;
+    margin-bottom: var(--spacing-sm) !important;
   }
 }
 
