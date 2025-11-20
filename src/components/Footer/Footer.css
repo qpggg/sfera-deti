@@ -104,6 +104,15 @@
   padding-left: 4px;
 }
 
+.footer__links span.footer__link {
+  cursor: default;
+}
+
+.footer__links span.footer__link:hover {
+  color: rgba(255, 255, 255, 0.8);
+  padding-left: 0;
+}
+
 .footer__map {
   margin: var(--spacing-lg) 0;
   border-radius: 16px;

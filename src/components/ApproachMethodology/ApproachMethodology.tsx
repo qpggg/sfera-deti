@@ -92,7 +92,13 @@ function ApproachMethodology() {
         <div className="approach-methodology__content">
           <div className="approach-methodology__header">
             <h2 className="approach-methodology__title">
-              Единая методика развития личности, а не просто набор кружков
+              <span className="approach-methodology__title-desktop">Единая методика развития личности, а не просто набор кружков</span>
+              <div className="approach-methodology__title-mobile">
+                <div className="approach-methodology__title-part1">Единая методика</div>
+                <div className="approach-methodology__title-part2">развития личности,</div>
+                <div className="approach-methodology__title-part3">а не просто</div>
+                <div className="approach-methodology__title-part4">набор кружков</div>
+              </div>
             </h2>
             
             <div className="approach-methodology__intro approach-methodology__intro--desktop">

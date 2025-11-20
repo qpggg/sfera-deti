@@ -61,7 +61,7 @@ function ChooseDirection() {
     }))
   }, [])
 
-  const directions: Direction[] = [
+  const allDirections: Direction[] = [
     {
       id: 'gymnastics',
       name: 'Гимнастика',
@@ -145,6 +145,21 @@ function ChooseDirection() {
     }
   ]
 
+  // На десктопе меняем местами ИЗО-студию и Английский язык
+  const directions = useMemo(() => {
+    if (isMobile) {
+      return allDirections
+    }
+    // На десктопе: ИЗО-студия (индекс 4) и Английский язык (индекс 7) меняются местами
+    const reordered = [...allDirections]
+    const artIndex = reordered.findIndex(d => d.id === 'art')
+    const englishIndex = reordered.findIndex(d => d.id === 'english')
+    if (artIndex !== -1 && englishIndex !== -1) {
+      [reordered[artIndex], reordered[englishIndex]] = [reordered[englishIndex], reordered[artIndex]]
+    }
+    return reordered
+  }, [isMobile])
+
   return (
     <section 
       ref={sectionRef}
@@ -179,7 +194,7 @@ function ChooseDirection() {
             </h2>
             <p className="choose-direction__subtitle">
               Мы развиваем личность через разные форматы — от гимнастики до шахмат. 
-              Каждый продукт закрывает конкретные запросы родителей.
+              Каждое направление закрывает конкретные запросы родителей.
             </p>
           </div>
 
@@ -188,6 +203,7 @@ function ChooseDirection() {
               <div
                 key={direction.id}
                 className="choose-direction__card"
+                data-direction-id={direction.id}
                 style={{ 
                   animationDelay: `${index * 0.1}s`,
                   '--card-color': direction.color
@@ -374,7 +390,7 @@ function ChooseDirection() {
                 Мы развиваем личность через разные форматы - от гимнастики до шахмат.
               </p>
               <p className="choose-direction__convenience-extra">
-                Каждый продукт закрывает запросы родителей
+                Каждое направление закрывает запросы родителей
               </p>
             </div>
 

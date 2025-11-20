@@ -169,6 +169,26 @@
   background: #1a1a1a;
 }
 
+.header__phone-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--color-milk);
+  border: none;
+  color: var(--color-graphite);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.header__phone-toggle:hover {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
 .header__menu-toggle {
   display: none;
   width: 40px;
@@ -245,6 +265,10 @@
     transform: translateX(0);
   }
   
+  .header__phone-toggle {
+    display: flex;
+  }
+  
   .header__menu-toggle {
     display: flex;
   }
@@ -257,7 +281,7 @@
 @media (max-width: 768px) {
   /* Исправить логотип на мобильных */
   .header__logo {
-    margin-left: -1rem;
+    margin-left: -0.5rem;
     padding-left: var(--spacing-sm);
   }
   
@@ -353,6 +377,25 @@
     transform: translateY(0);
   }
   
+  .header__phone-toggle {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(0, 151, 184, 0.1) 0%, rgba(0, 151, 184, 0.05) 100%);
+    border: 1px solid rgba(0, 151, 184, 0.15);
+    color: var(--color-accent);
+    margin-right: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .header__phone-toggle:hover {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+    color: var(--color-white);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 151, 184, 0.3);
+  }
+  
   .header__menu-toggle {
     display: flex;
     width: 44px;
@@ -378,6 +421,7 @@
   
   .header__actions {
     margin-right: 0;
+    gap: 0.5rem;
   }
   
   /* Скрыть кнопку "Записаться" на мобильных */

@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
-import { ArrowRight, Clock, Zap, Star, Users, Activity, Palette, Brain } from 'lucide-react'
+import { Clock, Zap, Star, Users, Activity, Palette, Brain } from 'lucide-react'
 import ModalForms from '../ModalForms/ModalForms'
 import './Hero.css'
 
@@ -119,10 +119,20 @@ function Hero() {
               <div className="hero__buttons">
                 <button 
                   className="hero__button hero__button--primary hero__button-booking"
-                  onClick={() => setModalType('booking')}
+                  onClick={() => {
+                    const element = document.querySelector('#booking-form')
+                    if (element) {
+                      const headerHeight = 70
+                      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+                      const offsetPosition = elementPosition - headerHeight
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      })
+                    }
+                  }}
                 >
                   <span>Записаться на пробное занятие</span>
-                  <ArrowRight size={20} className="hero__button-icon" />
                 </button>
               <button 
                   className="hero__button hero__button--secondary hero__button-direction"

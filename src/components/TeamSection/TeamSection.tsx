@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useMemo } from 'react'
-import { User, GraduationCap, Heart, Users, Sparkles, Award, Shield, ArrowRight } from 'lucide-react'
+import { GraduationCap, Heart, Users, Award, Shield, ArrowRight } from 'lucide-react'
 import './TeamSection.css'
 
 function TeamSection() {
@@ -109,15 +109,46 @@ function TeamSection() {
             </p>
           </div>
 
+          <div className="team-section__founder-image-placeholder-mobile">
+            <img 
+              src="/founder.jpg" 
+              alt="Основатель СФЕРЫ"
+              className="team-section__founder-image-mobile"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement
+                target.style.display = 'none'
+                const placeholder = target.parentElement
+                if (placeholder) {
+                  const fallback = placeholder.querySelector('.team-section__founder-image-mobile-placeholder')
+                  if (fallback) {
+                    (fallback as HTMLElement).style.display = 'flex'
+                  }
+                }
+              }}
+            />
+            <div className="team-section__founder-image-mobile-placeholder" style={{ display: 'none' }}>
+              <Users size={48} />
+            </div>
+          </div>
+
           <div className="team-section__founder">
             <div className="team-section__founder-content">
-              <div className="team-section__founder-avatar-wrapper">
-                <div className="team-section__founder-avatar">
-                  <User size={48} />
-                </div>
-                <div className="team-section__founder-avatar-glow"></div>
-                <div className="team-section__founder-badge">
-                  <Sparkles size={16} />
+              <div className="team-section__founder-image-wrapper">
+                <img 
+                  src="/founder.jpg" 
+                  alt="Основатель СФЕРЫ"
+                  className="team-section__founder-image"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement
+                    target.style.display = 'none'
+                    const placeholder = target.parentElement?.querySelector('.team-section__founder-image-placeholder')
+                    if (placeholder) {
+                      (placeholder as HTMLElement).style.display = 'flex'
+                    }
+                  }}
+                />
+                <div className="team-section__founder-image-placeholder" style={{ display: 'none' }}>
+                  <Users size={48} />
                 </div>
               </div>
               <div className="team-section__founder-info">

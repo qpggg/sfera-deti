@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Phone } from 'lucide-react'
 import ModalForms from '../ModalForms/ModalForms'
 import './Header.css'
 
@@ -240,6 +240,13 @@ function Header() {
               >
                 Записаться
               </button>
+              <a
+                href="tel:+79809650985"
+                className="header__phone-toggle"
+                aria-label="Позвонить"
+              >
+                <Phone size={24} />
+              </a>
               <button
                 className="header__menu-toggle"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}

@@ -253,6 +253,32 @@
   position: relative;
   z-index: 2;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.team-section__founder-avatar-icon {
+  display: block;
+}
+
+.team-section__founder-avatar-image {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.team-section__founder-avatar-placeholder {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0, 151, 184, 0.1) 0%, rgba(0, 151, 184, 0.05) 100%);
+  color: var(--color-accent);
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .team-section__founder-avatar-glow {
@@ -311,6 +337,41 @@
   }
 }
 
+.team-section__founder-image-wrapper {
+  flex-shrink: 0;
+  width: 300px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(0, 151, 184, 0.1) 0%, rgba(0, 151, 184, 0.05) 100%);
+  border-radius: 24px;
+}
+
+.team-section__founder-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-section__founder:hover .team-section__founder-image {
+  transform: scale(1.05);
+}
+
+.team-section__founder-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0, 151, 184, 0.15) 0%, rgba(0, 151, 184, 0.08) 100%);
+  color: var(--color-accent);
+}
+
+.team-section__founder-image-placeholder svg {
+  opacity: 0.6;
+}
+
 .team-section__founder-info {
   flex: 1;
 }
@@ -361,7 +422,8 @@
 .team-section__founder-stat {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
 }
 
 .team-section__founder-stat-value {
@@ -370,12 +432,16 @@
   color: var(--color-accent);
   font-family: var(--font-heading);
   line-height: 1;
+  text-align: center;
+  width: 100%;
 }
 
 .team-section__founder-stat-label {
   font-size: 0.875rem;
   color: var(--color-text-light);
   margin-top: 0.25rem;
+  text-align: center;
+  width: 100%;
 }
 
 .team-section__features {
@@ -515,6 +581,7 @@
 }
 
 .team-section__psychologist {
+  display: none !important; /* Временно скрыт на всех устройствах */
   background: linear-gradient(135deg, rgba(0, 151, 184, 0.12) 0%, rgba(0, 151, 184, 0.06) 100%);
   border-radius: 32px;
   padding: var(--spacing-xl);
@@ -669,6 +736,11 @@
   }
 }
 
+/* Placeholder для изображения основателя на мобилке */
+.team-section__founder-image-placeholder-mobile {
+  display: none;
+}
+
 @media (max-width: 768px) {
   /* Вернуть в одну колонку, но с уменьшенными размерами */
   .team-section__features {
@@ -700,12 +772,92 @@
     font-size: 0.8125rem;
     line-height: 1.5;
   }
+
+  /* Квадратный placeholder для изображения основателя */
+  .team-section__founder-image-placeholder-mobile {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    max-width: 350px;
+    margin: 0 auto var(--spacing-md) auto;
+    border-radius: 24px;
+    border: 2px solid rgba(0, 151, 184, 0.15);
+    box-shadow: 0 8px 40px rgba(0, 151, 184, 0.1);
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(0, 151, 184, 0.15) 0%, rgba(0, 151, 184, 0.08) 100%);
+    color: var(--color-accent);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-section__founder-image-mobile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
+  }
+
+  .team-section__founder-image-mobile-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .team-section__founder-image-mobile-placeholder svg {
+    opacity: 0.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .team-section__founder-image-placeholder-mobile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 151, 184, 0.03) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .team-section__founder-image-placeholder-mobile:hover::before {
+    opacity: 1;
+  }
   
+  .team-section__founder {
+    padding: var(--spacing-lg);
+    border-radius: 20px;
+  }
+
   .team-section__founder-content {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    padding-top: 0;
+    margin: 0;
+  }
+
+  .team-section__founder-image-wrapper {
+    display: none;
+  }
+
+  .team-section__founder-info {
+    order: 0;
+  }
+
+  .team-section__founder-role-badge {
+    margin-top: 0;
   }
   
   .team-section__founder-stats {
@@ -727,10 +879,35 @@
     padding: var(--spacing-lg);
   }
   
+  .team-section__psychologist {
+    display: none !important; /* Временно скрыт на мобильных */
+  }
+  
   .team-section__founder-avatar {
     width: 100px;
     height: 100px;
     border-radius: 24px;
+    background: linear-gradient(135deg, rgba(0, 151, 184, 0.1) 0%, rgba(0, 151, 184, 0.05) 100%);
+  }
+  
+  /* На мобильных: скрыть иконку, показать изображение */
+  .team-section__founder-avatar-icon {
+    display: none !important;
+  }
+  
+  .team-section__founder-avatar-image {
+    display: block !important;
+    border-radius: 24px;
+  }
+  
+  .team-section__founder-avatar-placeholder {
+    display: flex !important;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(0, 151, 184, 0.1) 0%, rgba(0, 151, 184, 0.05) 100%);
+  }
+  
+  .team-section__founder-avatar-placeholder svg {
+    opacity: 0.5;
   }
   
   .team-section__cta-button {

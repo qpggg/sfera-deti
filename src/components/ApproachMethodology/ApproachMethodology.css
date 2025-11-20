@@ -113,6 +113,23 @@
   animation: fadeInUp 0.8s ease forwards;
   opacity: 0;
   transform: translateY(30px);
+  text-align: center;
+}
+
+.approach-methodology__title-mobile {
+  display: none;
+}
+
+.approach-methodology__title-part1,
+.approach-methodology__title-part2,
+.approach-methodology__title-part3,
+.approach-methodology__title-part4 {
+  display: block;
+  width: 100%;
+}
+
+.approach-methodology__title-desktop {
+  display: inline;
 }
 
 .approach-methodology__intro {
@@ -291,6 +308,14 @@
     border-radius: 24px;
     margin: 0 auto var(--spacing-lg);
   }
+
+  .approach-methodology__cta {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .approach-methodology__conclusion {
+    margin-bottom: var(--spacing-lg);
+  }
 }
 
 /* Блок "Удобство для родителя" - скрыт на десктопе по умолчанию */
@@ -304,7 +329,10 @@
     background: linear-gradient(135deg, rgba(0, 151, 184, 0.08) 0%, rgba(0, 151, 184, 0.03) 100%);
     border-radius: 24px;
     padding: var(--spacing-lg) var(--spacing-xl);
-    margin: 0 auto var(--spacing-lg);
+    margin-top: calc(var(--spacing-xl) + var(--spacing-lg));
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--spacing-lg);
     max-width: 950px;
     border: 2px solid rgba(0, 151, 184, 0.2);
     box-shadow: 0 4px 20px rgba(0, 151, 184, 0.08);
@@ -886,6 +914,128 @@
   .approach-methodology__title {
     margin-top: 0 !important;
     margin-bottom: var(--spacing-sm) !important;
+  }
+
+  /* Показать мобильную версию и скрыть десктопную */
+  .approach-methodology__title-desktop {
+    display: none !important;
+  }
+
+  .approach-methodology__title-mobile {
+    display: block !important;
+    text-align: center !important;
+  }
+
+  .approach-methodology__title-part1,
+  .approach-methodology__title-part2,
+  .approach-methodology__title-part3,
+  .approach-methodology__title-part4 {
+    display: block !important;
+    text-align: center !important;
+  }
+
+  .approach-methodology__title {
+    text-align: center !important;
+    font-size: clamp(1.625rem, 3.75vw, 2.75rem) !important;
+  }
+}
+
+/* Для очень маленьких экранов (меньше 442px) - принудительный перенос */
+@media (max-width: 442px) {
+  .approach-methodology__title {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    font-size: clamp(1.625rem, 3.75vw, 2.75rem) !important;
+  }
+
+  .approach-methodology__title-desktop {
+    display: none !important;
+  }
+
+  .approach-methodology__title-mobile {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .approach-methodology__title-part1 {
+    display: block !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .approach-methodology__title-part2,
+  .approach-methodology__title-part3,
+  .approach-methodology__title-part4 {
+    display: block !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* Дополнительно для iPhone и других мобильных устройств */
+@media (max-width: 480px) {
+  .approach-methodology__title {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    font-size: clamp(1.625rem, 3.75vw, 2.75rem) !important;
+  }
+
+  .approach-methodology__title-desktop {
+    display: none !important;
+  }
+
+  .approach-methodology__title-mobile {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .approach-methodology__title-part1,
+  .approach-methodology__title-part2,
+  .approach-methodology__title-part3,
+  .approach-methodology__title-part4 {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+/* Для планшетов и небольших экранов тоже показываем мобильную версию */
+@media (max-width: 1200px) {
+  .approach-methodology__title-desktop {
+    display: none !important;
+  }
+
+  .approach-methodology__title-mobile {
+    display: block !important;
+    text-align: center !important;
+  }
+
+  .approach-methodology__title-part1,
+  .approach-methodology__title-part2,
+  .approach-methodology__title-part3,
+  .approach-methodology__title-part4 {
+    display: block !important;
+    text-align: center !important;
+  }
+
+  .approach-methodology__title {
+    text-align: center !important;
+    font-size: clamp(1.625rem, 3.75vw, 2.75rem) !important;
   }
 }
 
