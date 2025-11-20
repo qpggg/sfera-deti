@@ -25,7 +25,7 @@ function Footer() {
             </div>
             <div className="footer__contact">
               <Phone size={20} />
-              <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+              <a href="tel:+79809650985">+7 (980) 965-09-85</a>
             </div>
             <div className="footer__contact">
               <Mail size={20} />

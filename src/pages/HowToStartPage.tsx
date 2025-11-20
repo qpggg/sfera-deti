@@ -177,15 +177,15 @@ function HowToStartPage() {
                 Записаться на пробное занятие
                 <ArrowRight size={20} />
               </Link>
-              <a href="tel:+79991234567" className="cta-box__button cta-box__button--secondary">
+              <a href="tel:+79809650985" className="cta-box__button cta-box__button--secondary">
                 <Phone size={20} />
                 Позвонить нам
               </a>
             </div>
             <div className="cta-box__contacts">
-              <a href="tel:+79991234567" className="cta-box__contact">
+              <a href="tel:+79809650985" className="cta-box__contact">
                 <Phone size={20} />
-                +7 (999) 123-45-67
+                +7 (980) 965-09-85
               </a>
               <a href="mailto:info@sfera.ru" className="cta-box__contact">
                 <Mail size={20} />

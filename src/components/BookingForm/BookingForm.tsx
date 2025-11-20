@@ -1,6 +1,10 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { Phone, User, Calendar, MessageSquare, CheckCircle, ArrowRight, UserCircle, Info } from 'lucide-react'
 import confetti from 'canvas-confetti'
+// Выберите один из вариантов:
+// import { sendEmail } from '../../utils/email' // EmailJS
+import { sendEmailWeb3Forms } from '../../utils/emailWeb3Forms' // Web3Forms (рекомендуется)
+// import { sendEmailFormSubmit } from '../../utils/emailFormSubmit' // FormSubmit (самый простой)
 import './BookingForm.css'
 
 function BookingForm() {
@@ -62,7 +66,7 @@ function BookingForm() {
       case 'childAge':
         if (!value.trim()) return 'Укажите возраст ребёнка'
         const age = parseInt(value)
-        if (isNaN(age) || age < 3 || age > 14) return 'Возраст должен быть от 3 до 14 лет'
+        if (isNaN(age) || age < 3 || age > 17) return 'Возраст должен быть от 3 до 17 лет'
         return ''
       case 'phone':
         if (!value.trim()) return 'Введите номер телефона'
@@ -130,8 +134,29 @@ function BookingForm() {
 
     setIsSubmitting(true)
     
-    // Здесь будет интеграция с CRM
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    try {
+      // Отправляем данные на email через Web3Forms
+      const success = await sendEmailWeb3Forms({
+        parentFullName: formData.parentFullName,
+        childFullName: formData.childFullName,
+        childAge: formData.childAge,
+        phone: formData.phone,
+        source: formData.source,
+        comment: formData.comment || undefined
+      })
+
+      if (!success) {
+        console.error('Не удалось отправить заявку на email')
+        alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.')
+        setIsSubmitting(false)
+        return
+      }
+    } catch (error) {
+      console.error('Ошибка при отправке заявки:', error)
+      alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.')
+      setIsSubmitting(false)
+      return
+    }
     
     setIsSubmitting(false)
     setIsSubmitted(true)
@@ -362,7 +387,7 @@ function BookingForm() {
                 </div>
                 <h3 className="booking-form__success-title">Спасибо за заявку!</h3>
                 <p className="booking-form__success-text">
-                  Мы свяжемся с вами в течение 15 минут и подберём идеальное направление для вашего ребёнка.
+                  Мы получили вашу заявку и свяжемся с вами в течение 15 минут.
                 </p>
               </div>
             ) : (
