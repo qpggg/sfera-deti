@@ -157,7 +157,7 @@ function TeamSection() {
                   Сафонова Екатерина Александровна
                 </h3>
                 <p className="team-section__founder-description">
-                  Мама четырех детей, 5 лет опыта в детских развивающих проектах. 
+                  Мама четырех детей, <br className="mobile-break" />5 лет опыта в детских развивающих проектах. 
                   Создала <span className="team-section__founder-sfera">СФЕРУ</span> как пространство, где ребёнка развивают без травм и давления.
                 </p>
                 <div className="team-section__founder-stats">

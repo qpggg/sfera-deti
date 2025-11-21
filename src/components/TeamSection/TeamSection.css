@@ -405,6 +405,10 @@
   margin: 0 0 var(--spacing-md) 0;
 }
 
+.mobile-break {
+  display: none;
+}
+
 .team-section__founder-sfera {
   background: linear-gradient(135deg, #006D8F 0%, #00A3C8 30%, #0097B8 60%, #00A3C8 85%, #00B8D4 100%);
   -webkit-background-clip: text;
@@ -772,7 +776,7 @@
     font-size: 0.8125rem;
     line-height: 1.5;
   }
-
+  
   /* Квадратный placeholder для изображения основателя */
   .team-section__founder-image-placeholder-mobile {
     display: flex;
@@ -832,7 +836,7 @@
   .team-section__founder-image-placeholder-mobile:hover::before {
     opacity: 1;
   }
-  
+
   .team-section__founder {
     padding: var(--spacing-lg);
     border-radius: 20px;
@@ -858,6 +862,10 @@
 
   .team-section__founder-role-badge {
     margin-top: 0;
+  }
+
+  .mobile-break {
+    display: block;
   }
   
   .team-section__founder-stats {
