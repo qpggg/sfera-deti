@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { Calendar, FileText, Users, CheckCircle, ArrowRight, Phone, Mail } from 'lucide-react'
 import Footer from '../components/Footer/Footer'
 import './HowToStartPage.css'
@@ -6,6 +7,15 @@ import './HowToStartPage.css'
 function HowToStartPage() {
   return (
     <div className="how-to-start-page">
+      <Helmet>
+        <title>Как начать — СФЕРА | Запись на пробное занятие</title>
+        <meta name="description" content="Как записаться в СФЕРУ: простые шаги для начала занятий. Бесплатное пробное занятие, консультация с педагогом, удобное расписание. Что нужно для записи и частые вопросы." />
+        <meta name="keywords" content="как записаться, пробное занятие, запись в детский центр, как начать занятия, бесплатное пробное занятие, запись в СФЕРУ" />
+        <meta property="og:title" content="Как начать — СФЕРА | Запись на пробное занятие" />
+        <meta property="og:description" content="Как записаться в СФЕРУ: простые шаги для начала занятий. Бесплатное пробное занятие, консультация с педагогом." />
+        <meta property="og:url" content="https://sfera-vrn.ru/how-to-start" />
+        <link rel="canonical" href="https://sfera-vrn.ru/how-to-start" />
+      </Helmet>
       <section className="how-to-start-hero">
         <div className="container">
           <div className="how-to-start-hero__content">

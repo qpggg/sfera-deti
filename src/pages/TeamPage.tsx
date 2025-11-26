@@ -1,4 +1,5 @@
 import { User, GraduationCap, Award, Heart } from 'lucide-react'
+import { Helmet } from 'react-helmet-async'
 import Footer from '../components/Footer/Footer'
 import './TeamPage.css'
 
@@ -76,6 +77,15 @@ const teamMembers: TeamMember[] = [
 function TeamPage() {
   return (
     <div className="team-page">
+      <Helmet>
+        <title>Команда — СФЕРА | Опытные педагоги-психологи</title>
+        <meta name="description" content="Наша команда — опытные педагоги-психологи с высшим образованием. Специалисты по развитию детей через движение, творчество и интеллект. Индивидуальный подход к каждому ребёнку." />
+        <meta name="keywords" content="педагоги СФЕРА, команда, педагоги-психологи, специалисты по развитию детей, опытные педагоги, детские педагоги" />
+        <meta property="og:title" content="Команда — СФЕРА | Опытные педагоги-психологи" />
+        <meta property="og:description" content="Наша команда — опытные педагоги-психологи с высшим образованием. Специалисты по развитию детей через движение, творчество и интеллект." />
+        <meta property="og:url" content="https://sfera-vrn.ru/team" />
+        <link rel="canonical" href="https://sfera-vrn.ru/team" />
+      </Helmet>
       <section className="team-hero">
         <div className="container">
           <div className="team-hero__content">

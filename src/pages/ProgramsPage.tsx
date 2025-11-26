@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { Activity, Music, Palette, Brain, Baby, ArrowRight, Clock, Users, Target } from 'lucide-react'
 import Footer from '../components/Footer/Footer'
 import './ProgramsPage.css'
@@ -119,6 +120,15 @@ const programs: Program[] = [
 function ProgramsPage() {
   return (
     <div className="programs-page">
+      <Helmet>
+        <title>Программы — СФЕРА | Движение, Творчество, Интеллект</title>
+        <meta name="description" content="Программы развития для детей 3-17 лет: СФЕРА Движение, СФЕРА Ритм, СФЕРА Арт, СФЕРА Ум, СФЕРА Mini. Комплексное развитие личности через движение, творчество и интеллект. Малочисленные группы, опытные педагоги." />
+        <meta name="keywords" content="программы для детей, детские программы, СФЕРА Движение, СФЕРА Ритм, СФЕРА Арт, СФЕРА Ум, СФЕРА Mini, развитие детей, детские кружки, занятия для детей" />
+        <meta property="og:title" content="Программы — СФЕРА | Движение, Творчество, Интеллект" />
+        <meta property="og:description" content="Программы развития для детей 3-17 лет: СФЕРА Движение, СФЕРА Ритм, СФЕРА Арт, СФЕРА Ум, СФЕРА Mini. Комплексное развитие личности." />
+        <meta property="og:url" content="https://sfera-vrn.ru/programs" />
+        <link rel="canonical" href="https://sfera-vrn.ru/programs" />
+      </Helmet>
       <section className="programs-hero">
         <div className="container">
           <div className="programs-hero__content">

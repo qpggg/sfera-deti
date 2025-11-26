@@ -356,6 +356,7 @@
     color: var(--color-text);
     margin-bottom: var(--spacing-sm);
     line-height: 1.6;
+    font-family: var(--font-body);
   }
 
   .approach-methodology__convenience-description {
@@ -363,6 +364,7 @@
     color: var(--color-text-light);
     line-height: 1.7;
     margin: 0;
+    font-family: var(--font-body);
   }
 }
 
@@ -395,6 +397,7 @@
   animation: scaleIn 0.5s ease forwards;
   opacity: 0;
   transform: scale(0.8);
+  font-family: var(--font-body);
 }
 
 .approach-methodology__approach-item:nth-child(1) {
@@ -800,6 +803,7 @@
   .approach-methodology__approach-item {
     padding: 0.375rem 0.75rem;
     font-size: 0.875rem;
+    font-family: var(--font-body);
   }
 
   .approach-methodology__directions-list {
