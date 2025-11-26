@@ -83,8 +83,8 @@ function TeamPage() {
         <meta name="keywords" content="педагоги СФЕРА, команда, педагоги-психологи, специалисты по развитию детей, опытные педагоги, детские педагоги" />
         <meta property="og:title" content="Команда — СФЕРА | Опытные педагоги-психологи" />
         <meta property="og:description" content="Наша команда — опытные педагоги-психологи с высшим образованием. Специалисты по развитию детей через движение, творчество и интеллект." />
-        <meta property="og:url" content="https://sfera-vrn.ru/team" />
-        <link rel="canonical" href="https://sfera-vrn.ru/team" />
+        <meta property="og:url" content="https://sfera-deti.ru/team" />
+        <link rel="canonical" href="https://sfera-deti.ru/team" />
       </Helmet>
       <section className="team-hero">
         <div className="container">

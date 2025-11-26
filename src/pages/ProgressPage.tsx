@@ -114,8 +114,8 @@ function ProgressPage() {
         <meta name="keywords" content="прогресс детей, результаты занятий, развитие детей, статистика прогресса, результаты программ СФЕРА, развитие навыков детей" />
         <meta property="og:title" content="Прогресс — СФЕРА | Результаты развития детей" />
         <meta property="og:description" content="Прогресс детей в СФЕРЕ за 3 месяца: развитие уверенности, фокуса, социализации, координации и самостоятельности." />
-        <meta property="og:url" content="https://sfera-vrn.ru/progress" />
-        <link rel="canonical" href="https://sfera-vrn.ru/progress" />
+        <meta property="og:url" content="https://sfera-deti.ru/progress" />
+        <link rel="canonical" href="https://sfera-deti.ru/progress" />
       </Helmet>
       <section className="progress-hero">
         <div className="container">

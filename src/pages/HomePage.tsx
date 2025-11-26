@@ -36,8 +36,8 @@ function HomePage() {
     "@type": "EducationalOrganization",
     "name": "СФЕРА",
     "description": "Центр дополнительного образования для детей 3-17 лет. Развитие личности через движение, творчество и интеллект.",
-    "url": "https://sfera-vrn.ru",
-    "logo": "https://sfera-vrn.ru/logo.png",
+    "url": "https://sfera-deti.ru",
+    "logo": "https://sfera-deti.ru/logo.png",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Воронеж",
@@ -64,10 +64,10 @@ function HomePage() {
         <meta name="keywords" content="детский центр, дополнительное образование, развитие детей, детские кружки, занятия для детей, развитие личности, детский центр Воронеж, СФЕРА, движение, творчество, интеллект, детские программы, педагоги-психологи, малочисленные группы" />
         <meta property="og:title" content="СФЕРА — пространство развития детей" />
         <meta property="og:description" content="Центр дополнительного образования для детей 3-17 лет. Развитие личности через движение, творчество и интеллект. Бесплатное пробное занятие." />
-        <meta property="og:url" content="https://sfera-vrn.ru/" />
+        <meta property="og:url" content="https://sfera-deti.ru/" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://sfera-vrn.ru/logo.png" />
-        <link rel="canonical" href="https://sfera-vrn.ru/" />
+        <meta property="og:image" content="https://sfera-deti.ru/logo.png" />
+        <link rel="canonical" href="https://sfera-deti.ru/" />
       </Helmet>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <Hero />

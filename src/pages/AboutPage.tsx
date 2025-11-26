@@ -12,8 +12,8 @@ function AboutPage() {
         <meta name="keywords" content="о нас СФЕРА, детский центр, миссия, ценности, подход к развитию детей, индивидуальный подход, мягкие методики, малые группы, комплексное развитие" />
         <meta property="og:title" content="О нас — СФЕРА | Пространство развития детей" />
         <meta property="og:description" content="СФЕРА — пространство развития детей, где каждый ребёнок может стать лучшей версией себя. Индивидуальный подход, мягкие методики, малые группы." />
-        <meta property="og:url" content="https://sfera-vrn.ru/about" />
-        <link rel="canonical" href="https://sfera-vrn.ru/about" />
+        <meta property="og:url" content="https://sfera-deti.ru/about" />
+        <link rel="canonical" href="https://sfera-deti.ru/about" />
       </Helmet>
       <section className="about-hero">
         <div className="container">

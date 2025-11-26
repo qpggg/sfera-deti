@@ -126,8 +126,8 @@ function ProgramsPage() {
         <meta name="keywords" content="программы для детей, детские программы, СФЕРА Движение, СФЕРА Ритм, СФЕРА Арт, СФЕРА Ум, СФЕРА Mini, развитие детей, детские кружки, занятия для детей" />
         <meta property="og:title" content="Программы — СФЕРА | Движение, Творчество, Интеллект" />
         <meta property="og:description" content="Программы развития для детей 3-17 лет: СФЕРА Движение, СФЕРА Ритм, СФЕРА Арт, СФЕРА Ум, СФЕРА Mini. Комплексное развитие личности." />
-        <meta property="og:url" content="https://sfera-vrn.ru/programs" />
-        <link rel="canonical" href="https://sfera-vrn.ru/programs" />
+        <meta property="og:url" content="https://sfera-deti.ru/programs" />
+        <link rel="canonical" href="https://sfera-deti.ru/programs" />
       </Helmet>
       <section className="programs-hero">
         <div className="container">
